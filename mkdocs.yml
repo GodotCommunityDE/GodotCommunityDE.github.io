@@ -1,0 +1,62 @@
+site_name: Godot Community DE
+copyright: Copyright &copy; 2022 Holger Winter / Roman Huber
+use_directory_urls: false
+
+extra_css:
+  - css/test.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/fJqxPZQ
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/r/GodotCommunityDE/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw
+
+
+markdown_extensions:
+  - attr_list
+  - meta                      # Für Metadaten wie "hide" in den Headern 
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+  - admonition
+  - pymdownx.details
+
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+theme: 
+  name: material # readthedocs, windmill, material 
+  custom_dir: overrides
+  language: de
+  logo: img/server_icon.png
+  favicon: img/server_icon.png
+  palette: 
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+  features:
+    #- header.autohide  
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+
