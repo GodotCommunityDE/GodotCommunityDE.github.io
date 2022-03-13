@@ -1,0 +1,14 @@
+.md-grid {max-width: 1440px;}
+.md-tabs__link {margin-top: 0rem;}
+.md-tabs__item {height: 2.5em;}
+.md-main__inner { margin-top: 0em;}
+.md-footer__link { padding-top: 0.2rem; padding-bottom: 0rem;}
+
+:root {
+    --md-primary-fg-color:        #1b1b1b;
+    --md-primary-fg-color--light: #e4e4e4;
+    --md-primary-fg-color--dark:  #f0f0f0;
+}
+
+
+
