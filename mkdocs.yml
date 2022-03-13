@@ -3,7 +3,7 @@ copyright: Copyright &copy; 2022 Holger Winter / Roman Huber
 use_directory_urls: false
 
 extra_css:
-  - css/test.css
+  - css/gdcde.css
 
 extra:
   social:
@@ -46,17 +46,20 @@ theme:
   logo: img/server_icon.png
   favicon: img/server_icon.png
   palette: 
-    - scheme: slate 
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-    - scheme: default
-      toggle:
-        icon: material/toggle-switch-off-outline 
-        name: Switch to dark mode
+    - primary: blue grey
   features:
     #- header.autohide  
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
+
+#  palette: 
+#    - scheme: slate 
+#      toggle:
+#        icon: material/toggle-switch
+#        name: Switch to light mode
+#    - scheme: default
+#      toggle:
+#        icon: material/toggle-switch-off-outline 
+#        name: Switch to dark mode
 
