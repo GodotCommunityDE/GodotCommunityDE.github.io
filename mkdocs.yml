@@ -14,18 +14,21 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw
 
+plugins:
+    - search
+    #- localsearch
 
 markdown_extensions:
   - attr_list
   - meta                      # Für Metadaten wie "hide" in den Headern 
   - pymdownx.highlight:
       anchor_linenums: true
+      linenums_style: table #pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
-
   - admonition
   - pymdownx.details
 

@@ -152,7 +152,7 @@ markdown_extensions:
 
 Damit können Tabs für Code, und auch andere Inhalte erstellt werden.
 
-```md title="meine_datei.md"
+``` title="meine_datei.md"
 === "C"
 
     ``` c title="meine_datei.c"

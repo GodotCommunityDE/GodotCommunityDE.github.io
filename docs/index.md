@@ -7,6 +7,7 @@ hide:
 # Willkommen zur Test Homepage
 Das ist die Homepage
 
+<hr>
 ## weiterer Abschnitt
 und der Text dazu
 
