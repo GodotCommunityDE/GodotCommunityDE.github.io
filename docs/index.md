@@ -11,3 +11,7 @@ Das ist die Homepage
 ## weiterer Abschnitt
 und der Text dazu
 
+![img](img/server_icon.png)
+
+Das ist ein Text
+{ .green }

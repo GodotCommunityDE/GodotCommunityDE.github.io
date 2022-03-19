@@ -21,6 +21,7 @@ plugins:
 markdown_extensions:
   - attr_list
   - meta                      # Für Metadaten wie "hide" in den Headern 
+  - def_list
   - pymdownx.highlight:
       anchor_linenums: true
       linenums_style: table #pymdownx-inline
@@ -31,8 +32,6 @@ markdown_extensions:
       alternate_style: true 
   - admonition
   - pymdownx.details
-
-  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
 
@@ -44,7 +43,7 @@ markdown_extensions:
 
 theme: 
   name: material # readthedocs, windmill, material 
-  custom_dir: overrides
+  #custom_dir: overrides
   language: de
   logo: img/server_icon.png
   favicon: img/server_icon.png
