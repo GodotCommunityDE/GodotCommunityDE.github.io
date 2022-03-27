@@ -10,3 +10,4 @@ hide:
 # Willkommen zur Test Homepage
 Das ist die Homepage
 
+{{ blog_content }}

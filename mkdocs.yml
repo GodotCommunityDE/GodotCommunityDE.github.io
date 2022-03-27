@@ -20,18 +20,18 @@ markdown_extensions:
   - attr_list
   - meta                      # Für Metadaten wie "hide" in den Headern 
   - def_list
-  - pymdownx.highlight:
-    anchor_linenums: true
-    linenums_style: table #pymdownx-inline
+  - pymdownx.highlight: 
+      anchor_linenums: true
+      linenums_style: table #pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
-    alternate_style: true 
+      alternate_style: true 
   - admonition
   - pymdownx.details
   - pymdownx.tasklist:
-    custom_checkbox: true
+      custom_checkbox: true
 
   - pymdownx.critic
   - pymdownx.caret
@@ -64,13 +64,14 @@ theme:
 #        icon: material/toggle-switch-off-outline 
 #        name: Switch to dark mode
 
+
 plugins:
   - search:
-    lang: de
+      lang: de
   - blogging:
-    dirs:
-      - blog/news
-    locale: de
-    time_format: '%Y-%m-%d %H:%M:%S' # The format used to display the time
-    meta_time_format: '%Y-%m-%d %H:%M:%S' # The format used to parse the time from meta
+      dirs:
+        - blog/news
+      locale: de
+      time_format: '%Y-%m-%d %H:%M:%S' # The format used to display the time
+      meta_time_format: '%Y-%m-%d %H:%M:%S' # The format used to parse the time from meta
 
