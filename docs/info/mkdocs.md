@@ -1,4 +1,5 @@
 # MkDocs
+Das ist eine Kurzbeschreibung wie MkDocs auf dieser Homepage verwendet wird
 
 ## Installation
 ```bash title="cmd"
@@ -55,7 +56,7 @@ pip install mkdocs-material
 [squidfunk.github.io/mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
 
 
-### Aktiviern/ Konfigurieren
+### Aktivieren/ Konfigurieren
 ```yaml title="mkdocs.yml"
 theme: 
   name: material 
@@ -99,8 +100,13 @@ erstellt
 ```gd title="meineDatei.gd" linenums="1"
 var x = 1
 
+# wird ausgeführt wenn fertig geladen
 func _ready():
 	pass
+
+func _progress(delta) -> void:
+  pass
+
 ```
 
 
@@ -108,11 +114,32 @@ func _ready():
 ```yaml title="mkdocs.yml"
 extra_css:
   - css/meincss.css
+
+markdown_extensions:
+  - attr_list
 ```
 
 Mit dieser Einsellung können eigene Styles eingebunden,  
 und verwendet werden.
 
+Um zum Beispiel die Style-Klasse "green" einem Absatz hinzuzufügen:
+``` md title="mein_dokument.md"
+
+Das ist mein Text in grün.
+{ .green }
+
+```
+
+Das ist mein Text in grün.
+{ .green }
+
+
+
+Das ist Links  
+mit 2 Zeilen
+{ .left }
+
+Und der Rest
 
 
 
@@ -125,7 +152,7 @@ markdown_extensions:
 
 Damit können Tabs für Code, und auch andere Inhalte erstellt werden.
 
-```md title="meine_datei.md"
+``` title="meine_datei.md"
 === "C"
 
     ``` c title="meine_datei.c"
@@ -262,3 +289,18 @@ Dieser Absatz wird hervorgehoben
 erstellt
 
 ++ctrl+alt+del++
+
+## Meta
+```yaml title="mkdocs.yml"
+markdown_extensions:
+  - meta                      
+```
+
+Im Header angegeben, wird das Menü in diesem Dokument versteckt.
+``` title="mein_dokument.md"
+---
+hide:
+    - navigation
+    - toc
+---
+```

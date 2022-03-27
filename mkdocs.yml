@@ -3,7 +3,7 @@ copyright: Copyright &copy; 2022 Holger Winter / Roman Huber
 use_directory_urls: false
 
 extra_css:
-  - css/test.css
+  - css/gdcde.css
 
 extra:
   social:
@@ -14,22 +14,23 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw
 
+plugins:
+    - search
 
 markdown_extensions:
   - attr_list
   - meta                      # Für Metadaten wie "hide" in den Headern 
+  - def_list
   - pymdownx.highlight:
       anchor_linenums: true
+      linenums_style: table #pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
-
   - admonition
   - pymdownx.details
-
-  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
 
@@ -41,22 +42,26 @@ markdown_extensions:
 
 theme: 
   name: material # readthedocs, windmill, material 
-  custom_dir: overrides
+  #custom_dir: overrides
   language: de
   logo: img/server_icon.png
   favicon: img/server_icon.png
   palette: 
-    - scheme: slate 
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-    - scheme: default
-      toggle:
-        icon: material/toggle-switch-off-outline 
-        name: Switch to dark mode
+    - primary: blue grey
   features:
     #- header.autohide  
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
 
+#  palette: 
+#    - scheme: slate 
+#      toggle:
+#        icon: material/toggle-switch
+#        name: Switch to light mode
+#    - scheme: default
+#      toggle:
+#        icon: material/toggle-switch-off-outline 
+#        name: Switch to dark mode
+
+ 
