@@ -16,7 +16,6 @@ extra:
 
 plugins:
     - search
-    #- localsearch
 
 markdown_extensions:
   - attr_list
@@ -65,3 +64,4 @@ theme:
 #        icon: material/toggle-switch-off-outline 
 #        name: Switch to dark mode
 
+ 

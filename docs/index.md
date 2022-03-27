@@ -4,14 +4,9 @@ hide:
     - navigation
     - toc
 ---
+![Community](img/titel_01.png)
+{ .top_image }
+
 # Willkommen zur Test Homepage
 Das ist die Homepage
 
-<hr>
-## weiterer Abschnitt
-und der Text dazu
-
-![img](img/server_icon.png)
-
-Das ist ein Text
-{ .green }
