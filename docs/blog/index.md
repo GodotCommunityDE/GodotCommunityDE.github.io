@@ -1,1 +1,3 @@
 # News
+
+{{ blog_content }}
