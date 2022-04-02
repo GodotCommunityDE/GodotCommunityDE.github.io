@@ -1,6 +1,7 @@
 site_name: Godot Community DE
-copyright: Copyright &copy; 2022 Holger Winter / Roman Huber
+copyright: Copyright &copy; 2022 Holger Winter / Kuhn Chris / Roman Huber
 use_directory_urls: false
+site_url: https://deutsche-godot-community.github.io/homepage/
 
 extra_css:
   - css/gdcde.css
@@ -14,14 +15,12 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw
 
-plugins:
-    - search
 
 markdown_extensions:
   - attr_list
   - meta                      # Für Metadaten wie "hide" in den Headern 
   - def_list
-  - pymdownx.highlight:
+  - pymdownx.highlight: 
       anchor_linenums: true
       linenums_style: table #pymdownx-inline
   - pymdownx.inlinehilite
@@ -39,6 +38,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+
 
 theme: 
   name: material # readthedocs, windmill, material 
@@ -64,4 +64,14 @@ theme:
 #        icon: material/toggle-switch-off-outline 
 #        name: Switch to dark mode
 
- 
+
+plugins:
+  - search:
+      lang: de
+  - blogging:
+      dirs:
+        - blog/news
+      locale: de
+      time_format: '%Y-%m-%d' # %H:%M:%S' # The format used to display the time
+      meta_time_format: '%Y-%m-%d %H:%M:%S' # The format used to parse the time from meta
+
