@@ -1,5 +1,5 @@
 site_name: Godot Community DE
-copyright: Copyright &copy; 2022 Holger Winter / Roman Huber
+copyright: Copyright &copy; 2022 Holger Winter / Kuhn Chris / Roman Huber
 use_directory_urls: false
 site_url: https://deutsche-godot-community.github.io/homepage/
 
@@ -72,6 +72,6 @@ plugins:
       dirs:
         - blog/news
       locale: de
-      time_format: '%Y-%m-%d %H:%M:%S' # The format used to display the time
+      time_format: '%Y-%m-%d' # %H:%M:%S' # The format used to display the time
       meta_time_format: '%Y-%m-%d %H:%M:%S' # The format used to parse the time from meta
 
