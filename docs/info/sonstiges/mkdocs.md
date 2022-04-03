@@ -109,6 +109,17 @@ func _progress(delta) -> void:
 
 ```
 
+## Blog Beitrag
+Bei einem Blog Beitrag soll folgender Header im MarkDown eingegeben werden
+``` yaml title="Blog Header"
+---
+title: Neue Homepage
+description: Eine neue Homepage basierend auf mkDocs
+date: "2021-03-21 00:00:00"
+---
+```
+
+
 
 ## Eigene CSS-Styles
 ```yaml title="mkdocs.yml"
