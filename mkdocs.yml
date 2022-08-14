@@ -14,7 +14,8 @@ extra:
       link: https://www.reddit.com/r/GodotCommunityDE/
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw
-
+    - icon: fontawesome/brands/github
+      link: https://github.com/Deutsche-Godot-Community
 
 markdown_extensions:
   - attr_list
