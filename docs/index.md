@@ -7,10 +7,11 @@ hide:
 ![Community](img/titel_01.png)
 { .top_image }
 
-# Willkommen.
-auf dieser Seite.  
+# Willkommen
+auf der offiziellen Homepage der deutschsprachigen Godot-Community.  
+Hier findest du wichtige Hilfen, Tutorials und Infos, in deutsch, zu der Godot-Engine und Spieleentwicklung.
 
-* An dieser Stelle wollen wir möglichst viele Informationen rund um Godot zusammentragen.  
-* Es geht hier um Tools, Tipps und Tricks rund um Godot.  
-* Quellen an denen man freie Software, Texturen oder was man sonst noch so gebrauchen kann, wenn man mit Godot arbeitet.
+Die deutschsprachige Godot-Community findest du auf [Discord](https://discord.gg/fJqxPZQ), [Reddit](https://www.reddit.com/r/GodotCommunityDE/) und [Youtube](https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw)
+
+If you're looking for the official English-language website for the Gotot-Engine, look here [https://godotengine.org](https://godotengine.org/)
 
