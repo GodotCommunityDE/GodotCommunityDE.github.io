@@ -3,6 +3,7 @@ title: Godot Unternehmen gegründet
 description: News für die deutschsprachige Godot Community bei Discord
 date: "2022-08-13 00:00:00"
 ---
+<sup>von: maurehago - 13 August 2022</sup>
 
 ## W4 Games
 W4 Games ist ein neues Unternehmen, das von den Godot Engine-Veteranen
