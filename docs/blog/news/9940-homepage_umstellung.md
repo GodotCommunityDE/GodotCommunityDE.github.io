@@ -1,21 +1,29 @@
 ---
 title: Homepage Umstellung
-description: Das neue Layout für die Homepage, und die Umstellung auf Mkdocs ist erfolgt.
+description: Das neue Layout für die Homepage, und die Umstellung auf MkDocs ist erfolgt.
 date: "2022-08-15 00:00:00"
 ---
 
-# Homepage Umstellung auf Mkdocs
+# Homepage Umstellung auf MkDocs
 <sup>von: maurehago - 15 August 2022</sup>
 
 Die Homepage ist jetzt Inhaltlich und Technisch umgestellt, und bereit für die Mitarbeit der Community.
 
-Warum Mkdocs?  
-Der wahrscheinlich wichtigste Grund für die Entscheidung Mkdocs zu verwenden, liegt darin, 
+## Ziel
+Das Ziel der Homepage ist, zu Informieren über die Godot-Engine und die Spieleentwicklung.
+
+Discord ist ein gutes Medium, um zu Diskutieren und Menschen mit dem selben Hobby zusammen zu bringen.
+Aber es hat auch den Nachteil das Informationen relativ rasch im Chat verloren gehen.
+
+Diesen Verlust an Information soll diese Homepage ausgleichen, und ist somit als Ergänzung zu dem Discord-Server der Community zu sehen.
+
+## Warum MkDocs?  
+Der wahrscheinlich wichtigste Grund für die Entscheidung MkDocs zu verwenden, liegt darin, 
 es so einfach wie Möglich zu halten.
 
-Da wir als Plattform GitHUB verwenden, lässt sich Mkdocs relativ einfach damit verbinden.
+Da wir als Plattform GitHUB verwenden, lässt sich MkDocs relativ einfach damit verbinden.
 So ist es möglich offline und mit Markdown-Dateien zu arbeiten, 
-und nach dem Übermitteln an GitHUB und dem Mergen in den "main"-Branch, wird die Homepage automatisch aktualisiert.
+und nach dem Übermitteln an GitHUB und dem Merge in den "main"-Branch, wird die Homepage automatisch aktualisiert.
 
 Ein weiterer Vorteil ist die interne automatische Indexierung der Seiten, welche eine Volltextsuche ermöglicht.
 Da eines unserer Ziele die Bereitstellung von Hilfen, Skripten und Tutorials ist, ist das schnelle Auffinden der Inhalte somit ein wichtiger Punkt
@@ -40,12 +48,12 @@ Also gibt es mehrere Möglichkeiten wie ihr an der Homepage mitarbeiten könnt:
 
 * Zum einen könnt ihr Wünsche, Anregungen und Vorschläge zur Homepage machen.
 
-* Des weiteren habt ihr die Möglichkeit, eigene Beiträge in Form von Text, oder besser als Markdown Datei, zu erstellen,  
-und diese einem Moderator der Discord Community oder Homepage zu schicken, der diese dann auf die Homepage stellt.
+* Des weiteren habt ihr die Möglichkeit, eigene Beiträge in Form von Text, oder besser als Markdown Datei, zu erstellen,
+und diese einem Moderator der Discord Community oder Homepage zu schicken, der diese dann auf die Homepage stellt.  
 Wenn ihr dabei Bilder verwenden wollt, dann diese als Platzhalter im Text vermerken, oder in Markdown verlinken.
 Das ganze dann am besten als ZIP-Datei weiter geben.
 
-* Für erfahrenere Benutzer, oder die es gerne werden wollen, die sich mit Git, GitHUB und eventuell mit Mkdocs auskennen,
+* Für erfahrenere Benutzer, oder die es gerne werden wollen, die sich mit Git, GitHUB und eventuell mit MkDocs auskennen,
 gibt es die Möglichkeit einen Fork auf das Projekt bei GitHUB zu machen, und mit Pull-Request die Änderungen einzuschicken.
 
 Weiterführende Links für die Mitarbeit an der Homepage findet ihr hier:  

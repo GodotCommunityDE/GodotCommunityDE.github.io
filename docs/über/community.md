@@ -6,8 +6,9 @@ Dieser Zusammenschluss ist auf einem [Discord](https://discord.gg/fJqxPZQ)-Serve
 
 Der Discord-Server wurde Anfang 2019 erstellt und zählt mittlerweile über 1000 Mitglieder aus verschiedensten Ländern.
 
-Die deutschsprachige Godot-Community findest zusätzlich bei [Reddit](https://www.reddit.com/r/GodotCommunityDE/) und [Youtube](https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw)
+Die deutschsprachige Godot-Community findest du zusätzlich bei [Reddit](https://www.reddit.com/r/GodotCommunityDE/) und [YouTube](https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw)
 
+Diese Homepage dient als Ergänzung zum bestehenden Discord-Server, vor allem um Informationen, die im Verlauf eines Chats verloren gehen, besser zur Verfügung zu stellen.
 
 ## Godot-Engine
 Natürlich dreht sich alles bei dieser Community um die Godot-Engine, und Spielentwicklung.
