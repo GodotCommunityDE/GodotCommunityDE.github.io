@@ -10,7 +10,7 @@ author: maurehago
 ## Reddit
 [Godot Community auf Reddit](https://www.reddit.com/r/GodotCommunityDE/)
 
-Reddit war nach Discord die zweite Anlaufstelle unserer Community.
+Reddit ist nach Discord die zweite Anlaufstelle unserer Community.
 Begonnen hat es mit einem #ScreenshotSaturday, wo jeden Samstag die Möglichkeit besteht, seine Werke zu zeigen.
 
 Ich möchte nochmals and #ScreenshotSaturday erinnern:  
