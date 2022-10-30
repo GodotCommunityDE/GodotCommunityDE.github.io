@@ -4,8 +4,7 @@ hide:
     - navigation
     - toc
 ---
-![Community](img/titel_01.png)
-{ .top_image }:
+![Community](img/titel_01.png){ .top_image }
 
 # Willkommen
 auf der offiziellen Homepage der deutschsprachigen Godot-Community.  
