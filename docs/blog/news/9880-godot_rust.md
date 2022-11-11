@@ -16,7 +16,7 @@ Nun gibt es, wie sicher Viele wissen, mehrere Optionen um in Godot Code zu schre
 &nbsp;
 
 ## Godot-rust
-Das `godot-rust` Projekt stellt eine Rust-basierte API für GDNative beziehungsweise nun auch GDExtension an. Das heißt, dass man Funktionen von der Godot API von Rust aus ansteuern kann. Dadurch hat man alle Vorteile der Rust Sprache und kann trotzdem mit Godot arbeiten. Natürlich kann man dadurch auch Performance Vorteile gegenüber GDScript herausholen, allerdings sollte man dafür versuchen so viel wie möglich mit Rust-nativen Lösungen zu arbeiten, denn ansonsten würde man einfach nur die C API von Godot Aufrufen, was GDScript am Ende auch macht.
+Das `godot-rust` Projekt stellt eine Rust-basierte API für GDNative beziehungsweise nun auch GDExtension bereit. Das heißt, dass man Funktionen von der Godot API von Rust aus ansteuern kann. Dadurch hat man alle Vorteile der Rust Sprache und kann trotzdem mit Godot arbeiten. Natürlich kann man dadurch auch Performance Vorteile gegenüber GDScript herausholen, allerdings sollte man dafür versuchen so viel wie möglich mit Rust-nativen Lösungen zu arbeiten, denn ansonsten würde man einfach nur die C API von Godot Aufrufen, was GDScript am Ende auch macht.
 
 &nbsp;
 
@@ -26,6 +26,6 @@ Seit dem 6.11.2022 gibt es die neue `godot-rust` version welche zeigt, wie die n
 
 Das ganze Projekt ist komplett Open Source und teilt sich in zwei verschiedene Github Repositories auf. Eins für [GDNative](https://github.com/godot-rust/godot-rust) und eins für [GDExtension](https://github.com/godot-rust/gdextension). 
 
-Wenn das ganze euch interessiert könnt ihr euch [das Buch/ die Dokumentation für GDNative](https://godot-rust.github.io/book/introduction.html) anschauen. Für die neue GDExtension Version gibt es dieses Buch zum jetzigen Zeitpunkt noch nicht, es wird aber bald folgen.
+Wenn das ganze euch interessiert könnt ihr euch [das Buch/ die Dokumentation für GDNative](https://godot-rust.github.io/book/introduction.html) anschauen. Für die neue GDExtension Version gibt es dieses Buch zum jetzigen Zeitpunkt noch nicht, es wird aber sicher bald folgen.
 
 Das Projekt hat auch einen Discord Server. Den Einladungslink dazu findet ihr [hier](https://discord.gg/aKUCJ8rJsc)
