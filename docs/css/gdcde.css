@@ -1,0 +1,97 @@
+/* Abstände Ausbesserungen */
+.md-grid {max-width: 1440px;}
+.md-tabs__link {margin-top: 0rem;}
+.md-tabs__item {height: 2.5em;}
+.md-main__inner { margin-top: 0em;}
+.md-footer__link { padding-top: 0.2rem; padding-bottom: 0rem;}
+.md-typeset h1 {margin-bottom: 0.2em;}
+.md-typeset h2 {margin-top: 3em; /* border-top: solid 1px #ccc; */}
+
+
+/* Farben */
+:root {
+    --md-primary-fg-color: #303e45;
+    --md-default-bg-color: #becbd2;
+    --md-code-bg-color: #111;
+}
+
+
+/* Code-Blöcke Farben */
+.highlight span.filename {
+    background-color: #303e45;
+    color: #ccc;
+}
+.linenodiv a {
+    color: #ccc;
+}
+:root > * {
+    --md-admonition-bg-color: #ECEFF1;
+
+    --md-code-bg-color: #202531; /* #1a2225; */
+    --md-code-fg-color: #ccced3;
+    --md-code-hl-string-color: #ffeca1;
+    --md-code-hl-keyword-color: #ff7085;
+    --md-code-hl-generic-color: #ccced3;
+    --md-code-hl-operator-color: #abc8ff;
+    --md-code-hl-number-color: #a1ffe0;
+    --md-code-hl-punctuation-color: #ccc;
+    --md-code-hl-comment-color: #80ccced3;
+    --md-code-hl-name-color: #bce0ff;
+    --md-code-hl-function-color: #57b3ff;
+}
+
+/* 
+:root {
+    --md-primary-fg-color:        #1b1b1b;
+    --md-primary-fg-color--light: #e4e4e4;
+    --md-primary-fg-color--dark:  #f0f0f0;
+    --md-default-bg-color: #303e45; /* bluegrey dark
+    --md-default-bg-color--light: #f5f7f8;
+}
+
+Code Farben
+:root > * {
+    --md-code-hl-number-color
+    --md-code-hl-special-color
+    --md-code-hl-function-color
+    --md-code-hl-constant-color
+    --md-code-hl-keyword-color
+    --md-code-hl-string-color
+    --md-code-hl-name-color
+    --md-code-hl-operator-color
+    --md-code-hl-punctuation-color
+    --md-code-hl-comment-color
+    --md-code-hl-generic-color
+    --md-code-hl-variable-color
+    Code block foreground, background and line highlight colors are defined via:
+
+    --md-code-fg-color
+    --md-code-bg-color
+    --md-code-hl-color
+}
+
+
+*/
+
+
+/* Farben */
+.blue {color: blue;}
+.green {color: green;}
+.red {color: red;}
+
+/* Ausrichtung */
+.left {float: left; margin: 0 16px 0 0;}
+.right {float: right; margin: 0 0 0 16px;}
+
+/* breiten */
+.px100 { width: 100px;}
+.px150 { width: 150px;}
+.px200 { width: 200px;}
+.px250 { width: 250px;}
+.px300 { width: 300px;}
+
+.top_image {
+    position: relative;
+    top: -32px;
+
+}
