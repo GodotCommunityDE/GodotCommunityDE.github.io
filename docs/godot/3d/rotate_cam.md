@@ -51,7 +51,7 @@ func _process(delta):
     rotate_cam(self, $Kamera)
 ```
 
-``` gdscript title="Kamera Rotation"
+```gd title="Kamera Rotation"
 # Kamera Rotieren
 # @param hals: Spatial  // um die Kamera horizontal zu Rotieren
 # @param cam: Camera    // Die Kamera um nach unten und Oben zu schauen

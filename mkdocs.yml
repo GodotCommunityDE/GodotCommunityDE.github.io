@@ -1,7 +1,7 @@
 site_name: Godot Community DE
 copyright: Copyright &copy; 2022 Holger Winter / Kuhn Chris / Roman Huber
 use_directory_urls: false
-site_url: https://deutsche-godot-community.github.io/homepage/
+site_url: https://deutsche-godot-community.github.io/
 
 extra_css:
   - css/gdcde.css
@@ -17,53 +17,30 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Deutsche-Godot-Community
 
-markdown_extensions:
-  - attr_list
-  - meta                      # Für Metadaten wie "hide" in den Headern 
-  - def_list
-  - pymdownx.highlight: 
-      anchor_linenums: true
-      linenums_style: table #pymdownx-inline
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - admonition
-  - pymdownx.details
-  - pymdownx.tasklist:
-      custom_checkbox: true
-
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
-
 
 theme: 
   name: material # readthedocs, windmill, material 
-  #custom_dir: overrides
+  palette:
+    scheme: slate
+    #primary: blue
+    accent: indigo
+
+  #custom_dir: communityde
+
   language: de
-  logo: img/server_icon.png
-  favicon: img/server_icon.png
-  palette: 
-    - primary: blue grey
+  logo: img/icon_de.png
+  favicon: img/icon.png
+
   features:
     #- header.autohide  
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
+    - navigation.top        # Nach oben Button anzeigen
+    #- toc.integrate         # Submenü wird im Menü angezeigt
+    - content.code.copy     # Kopieren für Codeblöcke anzeigen
+    - content.code.annotate # Annotationen innerhalb Code Blöcken
 
-#  palette: 
-#    - scheme: slate 
-#      toggle:
-#        icon: material/toggle-switch
-#        name: Switch to light mode
-#    - scheme: default
-#      toggle:
-#        icon: material/toggle-switch-off-outline 
-#        name: Switch to dark mode
 
 
 plugins:
@@ -75,4 +52,34 @@ plugins:
       locale: de
       time_format: '%Y-%m-%d' # %H:%M:%S' # The format used to display the time
       meta_time_format: '%Y-%m-%d %H:%M:%S' # The format used to parse the time from meta
+  #- awesome-pages
+
+
+markdown_extensions:
+  - attr_list
+  - meta                      # Für Metadaten wie "hide" in den Headern 
+  - def_list
+  - md_in_html
+
+  - pymdownx.highlight: 
+      use_pygments: true
+      linenums: true
+      anchor_linenums: true
+      linenums_style: table #pymdownx-inline
+
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
 

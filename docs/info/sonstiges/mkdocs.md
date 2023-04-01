@@ -3,7 +3,7 @@ Das ist eine Kurzbeschreibung wie MkDocs auf dieser Homepage verwendet wird
 
 ## Installation
 ```bash title="cmd"
-pip install mkdocs
+pip install mkdocs-material
 ```
 
 

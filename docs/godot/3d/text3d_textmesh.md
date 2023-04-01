@@ -7,7 +7,7 @@ von: Windy
 Diese beiden Neuerungen machen das was der Name schon erraten lässt. Label3D ist ein neues Node mit dem du einen Text in einer 3D-Szene darstellen lassen kannst. TextMesh ist da etwas versteckter und ist eine Typ-Erweiterung vom Mesh.
 
 Betrachten wir uns zunächst einmal das Label3D. Zu finden ist dies neue Node unter:
-![Label3D][bild_label3d]{ width="250"} 
+![Label3D][bild_label3d]{ .margin-left .px250 }  
 
 Bereits nach dem du das Node im Szenentree eingefügt hast und im 
 Inspektor => Panel(Text) => Parameter(Text) = einen Text eingegeben hast, ist dieser Text in der 3D-Szen sichtbar.
