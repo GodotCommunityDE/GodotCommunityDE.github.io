@@ -1,0 +1,8 @@
+<r-float color-p pos-sticky pos-t-l>
+<r-fit>
+    <a nav-l href="/"><b>romhub</b></a>
+    {{ for item of topnav }}
+    <a nav-l href="{{ item.url }}">{{ item.title }}</a>
+    {{ /for }}
+</r-fit>
+</r-float>

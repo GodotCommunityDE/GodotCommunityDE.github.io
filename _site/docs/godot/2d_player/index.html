@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<h1>2D Player</h1>
+<pre><code class="language-gdscript">extends CharacterBody2D
+
+# Geschwindigkeit des Spilers in Pixel /Sekunde
+@export var speed: float = 150.0
+@export var min_abstand: float = 30.0
+
+var is_colliding: bool = false # wenn Kolidiert
+var mouse_position: Vector2
+
+@onready var cam: Camera2D = $Camera2D
+
+func _process(_delta):
+	print(&quot;_process: &quot;, _delta)
+	# Richtung für bewegung
+	var direction: Vector2 = Vector2.ZERO
+
+	# Spieler in die richtung der Maus drehen
+	mouse_position =  get_global_mouse_position()
+	look_at(mouse_position)
+	
+	if global_position.distance_to(mouse_position) &gt; min_abstand:
+		if Input.is_action_pressed(&quot;move_foreward&quot;):
+			#direction.y -= 1
+			direction.x += 1
+
+	if Input.is_action_pressed(&quot;move_back&quot;):
+		#direction.y += 1
+		direction.x -= 1
+
+	if Input.is_action_pressed(&quot;move_left&quot;):
+		direction.y -= 1
+		pass
+	if Input.is_action_pressed(&quot;move_right&quot;):
+		direction.y += 1
+		pass
+
+	# drehen
+	direction = global_transform.basis_xform(direction)
+	
+	# Bewegung dem CharacterBody2D zuweisen
+	velocity = direction.normalized() * speed
+	
+func _physics_process(_delta):
+	print(&quot;_physics: &quot;, _delta)
+	# Spieler bewegen
+	is_colliding = move_and_slide()
+</code></pre>

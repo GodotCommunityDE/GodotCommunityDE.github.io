@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<h1>Label3D und TextMesh</h1>
+<p>von: Windy</p>
+<h2>Label3D</h2>
+<p>Diese beiden Neuerungen machen das was der Name schon erraten lässt. Label3D ist ein neues Node mit dem du einen Text in einer 3D-Szene darstellen lassen kannst. TextMesh ist da etwas versteckter und ist eine Typ-Erweiterung vom Mesh.</p>
+<p>Betrachten wir uns zunächst einmal das Label3D. Zu finden ist dies neue Node unter:
+<img src="img/label3d.png" alt="Label3D" class="margin-left px250"></p>
+<p>Bereits nach dem du das Node im Szenentree eingefügt hast und im
+Inspektor =&gt; Panel(Text) =&gt; Parameter(Text) = einen Text eingegeben hast, ist dieser Text in der 3D-Szen sichtbar.</p>
+<p>Der Parameter(Pixel Size) = regelt die Größe des Textes (wie groß soll ein Pixel in der 3D-Welt sein) und mit dem Parameter(Modulate) kannst du Farbe bestimmen.</p>
+<h2>TextMesh</h2>
+<p>Das TextMesh findest du im Node MeshInstance. Also fügst du in die Szene zunächst einmal eine  MeshInstance hinzu.</p>
+<p>Zunächst musst du in deinem Projekt eine Schriftart hinzufügen, am besten ein True Type Font (*.ttf).  Kopiere diese ins Projektverzeichnis oder in ein entsprechendes Unterverzeichnis.</p>
+<p>Wenn du die MeshInstance ausgewählt hast, kannst du im Inspektor folgende Einstellungen vornehmen:</p>
+<p>Parameter(Mesh) = TextMesh
+Panel(Text) =&gt; Parameter(Text) = eine Zeile Text, die angezeigt werden soll
+Parameter(Font) = DynamicFont
+=&gt; Panel(Font) =&gt; Parameter(Font Data) = TTF-Schrift aus dem Dateisystem rüber ziehen
+=&gt; Panel(Settings) =&gt; Parameter(Size) = Schriftgröße
+=&gt; Panel(Mesh) =&gt; Parameter(Depth) = Schrifttiefe</p>
+<p>Die Farbe kannst du im Material genauer bestimmen.</p>

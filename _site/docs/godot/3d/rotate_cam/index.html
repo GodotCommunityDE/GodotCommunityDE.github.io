@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<h1>Kamera Rotation 3D</h1>
+<h2>Beschreibung</h2>
+<p>Um eine Kamera in 3D zu Rotieren, ist es wichtig, diese als Kind einer Node zu verwenden.<br>
+Das Eltern-Element dient als Hals für die Horizontale Bewegung.<br>
+Die Kamera selber wird nur Vertikal rotiert.<br>
+Damit erfolgt eine schöne Kamera-Bewegung, ohne ein Nicken der Kamera zu verursachen.</p>
+<h2>Node Aufbau</h2>
+<pre><code class="language-title=&quot;Node-Tree&quot;">- Root (Spatial)
+  - Hals (Spatial oder KinematicBody)
+    - Kamera (Camera)
+</code></pre>
+<h2>Skripte</h2>
+<pre><code class="language-gdscript"># Die Maus Empfindlichkeit
+var mouse_sensivity: float = 1.0
+
+# Relative Position, um die sich der Mauszeiger seit dem letzten Frame bewegt hat
+var mouse_relative := Vector2(0.0, 0.0)     
+
+# Sanftheit der Bewegung
+var mouse_linear: float = 0.1
+</code></pre>
+<pre><code class="language-gdscript"># _input Event
+func _input(event):
+	# globale Variablen
+    # @var mouse_relative: Vector2
+
+    # Variablen
+    # @var mouse_sensivity: float
+    # @var mouse_linear: float
+
+	# Wenn Maus Bewegung (Umschauen)
+	if move_cam:
+		if event is InputEventMouseMotion:
+			# relative Mausbewegung merken
+			mouse_relative = mouse_relative.linear_interpolate(event.relative, mouse_linear) * mouse_sensivity
+</code></pre>
+<p>Im <code>_process(delta)</code>die Kamera-Rotation aufrufen</p>
+<pre><code class="language-gdscript">func _process(delta):
+    # Kamera rotieren
+    rotate_cam(self, $Kamera)
+</code></pre>
+<pre><code class="language-gd"># Kamera Rotieren
+# @param hals: Spatial  // um die Kamera horizontal zu Rotieren
+# @param cam: Camera    // Die Kamera um nach unten und Oben zu schauen
+func rotate_cam(hals: Spatial, cam: Camera):
+	# globale Variablen
+    # @var mouse_relative
+    
+    # nur wenn eine MausBewegung
+	if mouse_relative.length() &gt; 0 :
+		# Relative Maus Bewegung umkehren
+		var mouse_dist:Vector2 = -mouse_relative # kommt von _input MouseMotion
+		
+		# um eigene Y-Achse drehen
+		hals.transform.basis = transform.basis.orthonormalized()
+		hals.rotate(transform.basis.y, deg2rad(mouse_dist.x))
+			
+		# Maus (Vertical) empfindlichkeit für Kamera umkehren
+		var change = -mouse_relative.y
+		
+		# Prüfen ob die Mausbewegung + der Kamera ausrichtung innerhalb des erlaupten Sichtfeldes ist
+		if mouse_dist.y + camera_angle &lt; 90 and mouse_dist.y + camera_angle &gt; -90:
+			# Änderung zur Kamera Bewegung hinzufügen
+			camera_angle += mouse_dist.y
+			
+			# Kamera (Vertical) um die X-Achse der Nase rotieren
+			cam.rotate(cam.transform.basis.x, deg2rad(change))
+
+		# Maus Bewegung zurücksetzen
+		mouse_relative = Vector2()
+</code></pre>

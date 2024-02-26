@@ -1,0 +1,75 @@
+/* Bilder zu Text Ausrichtung */
+img{vertical-align:top}
+
+
+/* Abstände Ausbesserungen */
+.md-grid {max-width: none;}
+.md-tabs__link {margin-top: 0rem;}
+.md-tabs__item {height: 2.5em;}
+.md-main__inner { margin-top: 0em;}
+.md-footer__link { padding-top: 0.2rem; padding-bottom: 0rem;}
+.md-typeset h1 {margin-bottom: 0.2em;}
+.md-typeset h2 {margin-top: 3em; /* border-top: solid 1px #ccc; */}
+
+
+/* Farben */
+:root {
+    --md-primary-fg-color:  #478CBF;
+    /* --md-primary-bg-color--dark: #478CBF; */
+}
+
+/* Code-Blöcke Farben */
+.highlight span.filename {
+    background-color: #303e45;
+    /* color: #ccc; */
+}
+.linenodiv a {
+    color: #ccc;
+}
+:root > * {
+    /* --md-admonition-bg-color: #ECEFF1; */
+
+    --md-code-bg-color: #202531; /* #1a2225; */
+    --md-code-fg-color: #ccced3;
+    --md-code-hl-keyword-color: #FF7085;
+    --md-code-hl-string-color: #ffeca1;
+    --md-code-hl-number-color: #a1ffe0;
+    --md-code-hl-operator-color: #88d1ff; /* .+-* abc8ff */
+    --md-code-hl-comment-color: #75787D;
+    --md-code-hl-constant-color: #87EFCE;
+    --md-code-hl-name-color: #CDCFD2; /* bce0ff */
+
+    --md-code-hl-generic-color: #ff0000; /* ccced3*/
+    --md-code-hl-punctuation-color: #ccc;
+    --md-code-hl-function-color: #66E5FF; /* 66E5FF */
+}
+
+
+/* ===============================
+    Erweiterte Klassen
+   ------------------- */
+
+/* Farben */
+.blue {color: blue;}
+.green {color: green;}
+.red {color: red;}
+
+/* Ausrichtung */
+.left {float: left; margin: 0 16px 0 0;}
+.right {float: right; margin: 0 0 0 16px;}
+
+/* Abstände */
+.margin-left {margin-left: 16px;}
+.margin-right {margin-right: 16px;}
+
+/* breiten */
+.px100 { width: 100px;}
+.px150 { width: 150px;}
+.px200 { width: 200px;}
+.px250 { width: 250px;}
+.px300 { width: 300px;}
+
+.top_image {
+    position: relative;
+    top: -32px;
+}
