@@ -1,0 +1,217 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <link rel="stylesheet" href="/css/flex.css">
+  <link rel="stylesheet" href="/css/flex-colors.css">
+  <link rel="stylesheet" href="/css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/img/server_icon.png" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/img/server_icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <r-float style="min-height: 100vh">
+    <r-float color-p pa-v pos-sticky style="height: 48px; top:0px;">
+    <a nav-l href="/"><b>GodotCommunityDE</b></a>
+    
+        
+        <a nav-l href="/blog">Blog</a>
+        
+    
+</r-float>
+
+    <r-fit>
+    <c-fit pa-h style="min-height: calc(90vh - 48px); margin: auto; max-width:800px;">
+      <p><sub>2022-08-15 </sub></p>
+      <h1>Homepage Umstellung auf MkDocs</h1>
+<p><sup>von: maurehago - 15 August 2022</sup></p>
+<p>Die Homepage ist jetzt Inhaltlich und Technisch umgestellt, und bereit für die Mitarbeit der Community.</p>
+<h2>Ziel</h2>
+<p>Das Ziel der Homepage ist, zu Informieren über die Godot-Engine und die Spieleentwicklung.</p>
+<p>Discord ist ein gutes Medium, um zu Diskutieren und Menschen mit dem selben Hobby zusammen zu bringen.<br>
+Aber es hat auch den Nachteil das Informationen relativ rasch im Chat verloren gehen.</p>
+<p>Diesen Verlust an Information soll diese Homepage ausgleichen, und ist somit als Ergänzung zu dem Discord-Server der Community zu sehen.</p>
+<h2>Warum MkDocs?</h2>
+<p>Der wahrscheinlich wichtigste Grund für die Entscheidung MkDocs zu verwenden, liegt darin,<br>
+es so einfach wie Möglich zu halten.</p>
+<p>Da wir als Plattform GitHUB verwenden, lässt sich MkDocs relativ einfach damit verbinden.<br>
+So ist es möglich offline und mit Markdown-Dateien zu arbeiten,<br>
+und nach dem Übermitteln an GitHUB und dem Merge in den &quot;main&quot;-Branch, wird die Homepage automatisch aktualisiert.</p>
+<p>Ein weiterer Vorteil ist die interne automatische Indexierung der Seiten, welche eine Volltextsuche ermöglicht.<br>
+Da eines unserer Ziele die Bereitstellung von Hilfen, Skripten und Tutorials ist, ist das schnelle Auffinden der Inhalte somit ein wichtiger Punkt</p>
+<h2>Inhalt</h2>
+<p>Inhaltlich gibt es vorerst drei Bereiche:</p>
+<h3>der Blog</h3>
+<p>Hier kommen News, Vorstellungen und Fortschritte von Projekten, und sonstige Neuigkeiten rund um die Godot-Community und der Godot-Engine rein.</p>
+<h3>der Bereich Godot</h3>
+<p>Dieser Abschnitt beinhaltet Tutorials, Hilfen und Skripte für die Godot-Engine, und soll vor allem als Nachschlagewerk dienen.</p>
+<h3>Info</h3>
+<p>Weitere Infos rund um die Spiele Entwicklung, so wie Hilfen und Links zu nützlichen Tools, kommen in diesen Bereich.</p>
+<h2>Mitarbeit an der Homepage</h2>
+<p>Die Homepage soll für die Godot-Community da sein, aber vor allem von der Godot Community gestaltet und gepflegt werden.<br>
+Also gibt es mehrere Möglichkeiten wie ihr an der Homepage mitarbeiten könnt:</p>
+<ul>
+<li>
+<p>Zum einen könnt ihr Wünsche, Anregungen und Vorschläge zur Homepage machen.</p>
+</li>
+<li>
+<p>Des weiteren habt ihr die Möglichkeit, eigene Beiträge in Form von Text, oder besser als Markdown Datei, zu erstellen,<br>
+und diese einem Moderator der Discord Community oder Homepage zu schicken, der diese dann auf die Homepage stellt.<br>
+Wenn ihr dabei Bilder verwenden wollt, dann diese als Platzhalter im Text vermerken, oder in Markdown verlinken.<br>
+Das ganze dann am besten als ZIP-Datei weiter geben.</p>
+</li>
+<li>
+<p>Für erfahrenere Benutzer, oder die es gerne werden wollen, die sich mit Git, GitHUB und eventuell mit MkDocs auskennen,<br>
+gibt es die Möglichkeit einen Fork auf das Projekt bei GitHUB zu machen, und mit Pull-Request die Änderungen einzuschicken.</p>
+</li>
+</ul>
+<p>Weiterführende Links für die Mitarbeit an der Homepage findet ihr hier:<br>
+<a href="/homepage/%C3%BCber/homepage.html">Homepage Mittarbeit</a></p>
+<h2>Welche Inhalte dürfen gepostet werden</h2>
+<p>Zuerst einmal sollte alles hier in deutscher Sprache erfolgen.<br>
+Für andere Sprachen gibt es andere Kanäle.</p>
+<p>Am meisten freue ich mich über Projektvorstellungen und News, sowie kurze Tutorials zu der Godot-Engine.</p>
+<p>Wenn ihr Infos zu Tools habt, Beschreibungen oder Ratschläge, die einem beim Erstellen und Entwickeln von Spielen helfen könnten, sind diese hier auch gerne gesehen.</p>
+<p>Hilfen für andere Game-Engines, sollten hier vermieden werden. Für diese gibt es eigene Communitys und Kanäle.</p>
+
+    </c-fit>
+    <c-300 hide-m>
+      <nav-side style="height: calc(100vh - 48px); top:48px;" >
+        <p>
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/index.html">
+    News
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9880-godot_rust.html">
+    Godot-rust Addon jetzt für Godot 4
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9870-homepage_aenderungen.html">
+    Community Homepage Änderungen
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9890-godot_stiftung.html">
+    Godot zieht in eine neue Stiftung
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9900-neue_links.html">
+    Neue Godot Links
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9910-godot-reddit.html">
+    Godot Reddit 100.000
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9920-godot4_beta4.html">
+    Neue Godot 4 Beta 4
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9925-3d_character_controller.html">
+    GDQuest neuer Charakter Controller
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9930-news_2022-10.html">
+    Tools Links
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9940-homepage_umstellung.html">
+    Homepage Umstellung
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9950-community_media.html">
+    Community Bereiche
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9960-discord_threads.html">
+    Discord Threads
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9965-godot_unternehmen.html">
+    Godot Unternehmen gegründet
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9967-discord_1000.html">
+    Tausender Marke überschritten
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9970-godot3_5.html">
+    Godot 3.5 Änderungen
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9980-godot-3_4_4.html">
+    Wartungsrelease - Godot 3.4.4
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9990-alterBeitrag.html">
+    
+</a>
+
+  
+</p>
+      </nav-side>
+    </c-300>
+    </r-fit>
+  </r-float>
+  <r-float>
+    <c-100 color-darkgrey no-print style="height: 100px;">
+        <r-fit>
+    
+        <a nav-r href="/impressum">Impressum</a>
+    
+</r-fit>
+
+    </c-100>
+  </r-float>
+  <script src="/css/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+layout: nav.vto
+
+topnav:
+  - title: Blog
+    url: /blog
+
+impressum:
+  title: Impressum
+  url: /impressum

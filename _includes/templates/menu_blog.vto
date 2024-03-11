@@ -1,0 +1,5 @@
+<p>
+  {{ for item of search.pages("blog", "date=desc") }}
+    {{ include "templates/menu_blog_item.vto" { item } }}
+  {{ /for }}
+</p>

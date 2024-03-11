@@ -1,0 +1,5 @@
+<p>
+  {{ for item of nav.menu(page.data.menu_path).children }}
+    {{ include "templates/menu_item.vto" { item } }}
+  {{ /for }}
+</p>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <link rel="stylesheet" href="/css/flex.css">
+  <link rel="stylesheet" href="/css/flex-colors.css">
+  <link rel="stylesheet" href="/css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/img/server_icon.png" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/img/server_icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <r-float style="min-height: 100vh">
+    <r-float color-p pa-v pos-sticky style="height: 48px; top:0px;">
+    <a nav-l href="/"><b>GodotCommunityDE</b></a>
+    
+        
+        <a nav-l href="/blog">Blog</a>
+        
+    
+</r-float>
+
+    <r-fit>
+    <c-fit pa-h style="min-height: calc(90vh - 48px); margin: auto; max-width:800px;">
+      <p><sub>2023-05-05 von ARez</sub></p>
+      <h1>Godot Rust Addon für Godot 4</h1>
+<h2>Einführung</h2>
+<p>Rust ist eine relativ neue Sprache (erste stabile Version 2015), welche ähnlich wie C++ als &quot;System-level&quot; Sprache bezeichnet wird. Ein Vorteil von Rust gegenüber C++ ist die quasi-garantierte Speichersicherheit, welche durch ein prüfen bei Compile-time erreicht wird. Es gibt dadurch also keine Performance-Nachteile.</p>
+<p>Rust als Sprache selber ist also sehr schnell und wird seit neuestem von großen Firmen wie Dropbox, Microsoft, Facebook, Amazon und auch Discord verwendet. Selbst der neue Linux Kernel soll in Rust geschrieben werden!</p>
+<p>Nun gibt es, wie sicher Viele wissen, mehrere Optionen um in Godot Code zu schreiben. Als Standard wird oft GDScript angesehen, allerdings stehen auch C# oder C++ zur Auswahl. Dies war in Godot 3 durch <code>GDNative</code> möglich. Für Godot 4 wird dieses System überarbeitet und zu <code>GDExtension</code> umbenannt.</p>
+<h2>Godot-rust</h2>
+<p>Das <code>godot-rust</code> Projekt stellt eine Rust-basierte API für GDNative beziehungsweise nun auch GDExtension bereit. Das heißt, dass man Funktionen von der Godot API von Rust aus ansteuern kann. Dadurch hat man alle Vorteile der Rust Sprache und kann trotzdem mit Godot arbeiten. Natürlich kann man dadurch auch Performance Vorteile gegenüber GDScript herausholen, allerdings sollte man dafür versuchen so viel wie möglich mit Rust-nativen Lösungen zu arbeiten, denn ansonsten würde man einfach nur die C API von Godot Aufrufen, was GDScript am Ende auch macht.</p>
+<p>Seit dem 6.11.2022 gibt es die neue <code>godot-rust</code> version welche zeigt, wie die neue GDExtension API wahrscheinlich genutzt werden wird. Dabei ist zu beachten, dass diese Version noch sehr früh in ihrer Entwicklung ist und nur die wichtigsten Klassen der GDExtension API implementiert hat. Als Beispiel hat der Haupt-Autor von <code>godot-rust</code> das &quot;Dodge-the-creeps&quot; Beispiel implementiert. Den Link zum Ordner im Github Repository findet ihr <a href="https://github.com/godot-rust/gdextension/tree/master/examples/dodge-the-creeps">hier</a>.</p>
+<p>Das ganze Projekt ist komplett Open Source und teilt sich in zwei verschiedene Github Repositories auf. Eins für <a href="https://github.com/godot-rust/godot-rust">GDNative</a> und eins für <a href="https://github.com/godot-rust/gdextension">GDExtension</a>.</p>
+<p>Wenn das ganze euch interessiert könnt ihr euch <a href="https://godot-rust.github.io/book/introduction.html">das Buch/ die Dokumentation für GDNative</a> anschauen. Für die neue GDExtension Version gibt es dieses Buch zum jetzigen Zeitpunkt noch nicht, es wird aber sicher bald folgen.</p>
+<p>Das Projekt hat auch einen Discord Server. Den Einladungslink dazu findet ihr <a href="https://discord.gg/aKUCJ8rJsc">hier</a></p>
+
+    </c-fit>
+    <c-300 hide-m>
+      <nav-side style="height: calc(100vh - 48px); top:48px;" >
+        <p>
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/index.html">
+    News
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9880-godot_rust.html">
+    Godot-rust Addon jetzt für Godot 4
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9870-homepage_aenderungen.html">
+    Community Homepage Änderungen
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9890-godot_stiftung.html">
+    Godot zieht in eine neue Stiftung
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9900-neue_links.html">
+    Neue Godot Links
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9910-godot-reddit.html">
+    Godot Reddit 100.000
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9920-godot4_beta4.html">
+    Neue Godot 4 Beta 4
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9925-3d_character_controller.html">
+    GDQuest neuer Charakter Controller
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9930-news_2022-10.html">
+    Tools Links
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9940-homepage_umstellung.html">
+    Homepage Umstellung
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9950-community_media.html">
+    Community Bereiche
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9960-discord_threads.html">
+    Discord Threads
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9965-godot_unternehmen.html">
+    Godot Unternehmen gegründet
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9967-discord_1000.html">
+    Tausender Marke überschritten
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9970-godot3_5.html">
+    Godot 3.5 Änderungen
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9980-godot-3_4_4.html">
+    Wartungsrelease - Godot 3.4.4
+</a>
+
+  
+    <!-- wird von nav.vto aufgerufen -->
+<a nav-bl href="/blog/9990-alterBeitrag.html">
+    
+</a>
+
+  
+</p>
+      </nav-side>
+    </c-300>
+    </r-fit>
+  </r-float>
+  <r-float>
+    <c-100 color-darkgrey no-print style="height: 100px;">
+        <r-fit>
+    
+        <a nav-r href="/impressum">Impressum</a>
+    
+</r-fit>
+
+    </c-100>
+  </r-float>
+  <script src="/css/prism.js"></script>
+</body>
+
+</html>

@@ -1,26 +1,62 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html class="no-js" lang="">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
   <link rel="stylesheet" href="/css/flex.css">
-  <link rel="stylesheet" href="/css/flex-colors.css">  
-  <link rel="stylesheet" href="/css/prism.css">  
-  <title>godotcommunity.de</title>
+  <link rel="stylesheet" href="/css/flex-colors.css">
+  <link rel="stylesheet" href="/css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/img/server_icon.png" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/img/server_icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
 </head>
+
 <body>
-  <!-- { include "layout/topnav.vto" }
-  { include "layout/subnav.vto" } -->
-  <r-float ma-t-16>
-    <r-fit><h1>Home</h1></r-fit>
-    <p><img src="img/titel_01.png" alt="Community" class="top_image"></p>
+  <r-float style="min-height: 100vh">
+    <r-float color-p pa-v pos-sticky style="height: 48px; top:0px;">
+    <a nav-l href="/"><b>GodotCommunityDE</b></a>
+    
+        
+        <a nav-l href="/blog">Blog</a>
+        
+    
+</r-float>
+
+    <c-fit pa-h style="min-height: calc(90vh - 48px);">
+      <p><img src="img/titel_01.png" alt="Community" class="top_image"></p>
+<r-fit>
 <h1>Willkommen</h1>
 <p>auf der offiziellen Homepage der deutschsprachigen Godot-Community.<br>
 Hier findest du wichtige Hilfen, Tutorials und Infos, in deutsch, zu der Godot-Engine und Spieleentwicklung.</p>
 <p>Die deutschsprachige Godot-Community findest du auf <a href="https://discord.gg/fJqxPZQ">Discord</a>, <a href="https://www.reddit.com/r/GodotCommunityDE/">Reddit</a> und <a href="https://www.youtube.com/channel/UCB67N-SEJkfbJ1OoSkkaWvw">YouTube</a></p>
 <p>If you're looking for the official English-language website for the Godot-Engine, look here <a href="https://godotengine.org/">https://godotengine.org</a></p>
-
+</r-fit>
+    </c-fit>
   </r-float>
-  <!-- { include "layout/footer.vto" } -->
+  <r-float>
+    <c-100 color-darkgrey no-print style="height: 100px;">
+      <r-fit>
+    
+        <a nav-r href="/impressum">Impressum</a>
+    
+</r-fit>
+
+    </c-100>
+  </r-float>
   <script src="/css/prism.js"></script>
-  </body>
+</body>
+
 </html>

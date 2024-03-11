@@ -1,11 +1,11 @@
 ---
-
-layout: layouts/main.vto
+layout: index.vto
 title: Home
 
 ---
-
 ![Community](img/titel_01.png){ .top_image }
+
+<r-fit>
 
 # Willkommen
 auf der offiziellen Homepage der deutschsprachigen Godot-Community.  
@@ -15,3 +15,4 @@ Die deutschsprachige Godot-Community findest du auf [Discord](https://discord.gg
 
 If you're looking for the official English-language website for the Godot-Engine, look here [https://godotengine.org](https://godotengine.org/)
 
+</r-fit>
