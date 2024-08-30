@@ -1,9 +1,0 @@
-<r-float color-s pos-sticky style="top:40px; left:0px;">
-<r-fit>
-{{ for sub of subnav }}
-   <a nav-l href="{{ sub.link }}">{{ sub.name }}</a>
-{{ /for }}
-</r-fit>
-</r-float>
-
-
