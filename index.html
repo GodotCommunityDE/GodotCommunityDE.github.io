@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Godot Community DE</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" type="text/css" href="/flex/flex.css" />
+    <link rel="stylesheet" type="text/css" href="/flex/flex-colors.css" />
+    <style>
+        #menue {position: fixed; width: 300px; top:50px; bottom: 0px; overflow-y: auto; display: none;}
+        .showmenue { display: block !important;}
+        .showmenue ~ #content {margin-left: 350px; max-width: 796px;}
+        .showmenue ~ #footer {margin-left: 300px;}
+
+        a::before ~ ul ul {content: "+ ";}
+        /* ul ul{background-color: #5387BF;} */
+
+        #footer {color: #fff !important;background-color: #222 !important}
+
+
+        @media print {
+            #content {margin-left: 0!important;}
+            #menue {display: none!important;}
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header" pos-t pos-sticky no-print></div>
+    <nav id="menue" color-p2 hide-s no-print class="">Menue</nav>
+    <div id="content" h-10><h1>Lade ...</h1></div>
+    <div id="footer" h-1 no-print>Footer</div>
+</body>
+
+<script type="module">
+    import {showSite, showContent, setSublist} from "./lidoc/lidoc.js";
+
+    // Selectoren
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    // Elemente lesen
+    const menueElm = $("#menue");
+
+    // Events
+    addEventListener("hashchange", (e) => {
+        menueElm.classList.add("showmenue");
+        showSite($("#content"));
+    });
+
+    // Header u. Footer laden
+    showContent($("#header"), "/doc/_header.md");
+    showContent($("#footer"), "/doc/_footer.md");
+
+    // Menue Anzeigen wenn Hash
+    if (window.location.hash?.length > 2) {
+        $("#menue").classList.add("showmenue");
+    }
+
+    // Menues laden und Seite anzeigen
+    showContent($("#menue"), "/doc/_menue.md").then(() =>{
+        // [sub-list] Erstellen
+        setSublist();
+        showSite($("#content"));
+    });
+
+</script>
+
+</html>
