@@ -11,7 +11,7 @@
 //   Imports
 // -----------
 import { parseMd } from "./parsemd.js";
-
+// import  Prism from "../prism/prism.js"
 
 // ==================
 //   Types
@@ -194,6 +194,14 @@ export async function showContent(elm, url) {
     // HTML im Body anzeigen
     elm.innerHTML = "";
     elm.insertAdjacentHTML("afterbegin", siteData.html.get("content"));
+
+    // Syntax Highlighter
+    // @ts-ignore
+    if (window?.Prism) {
+        // @ts-ignore
+        window.Prism.highlightAll();
+    }
+    
 } // showSite
 
 

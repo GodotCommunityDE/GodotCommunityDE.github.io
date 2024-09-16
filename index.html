@@ -9,6 +9,7 @@
     <link rel="icon" href="/img/icon.png">
     <link rel="stylesheet" type="text/css" href="/flex/flex.css" />
     <link rel="stylesheet" type="text/css" href="/flex/flex-colors.css" />
+    <link rel="stylesheet" type="text/css" href="/prism/prism.css" />
     <style>
         #menue {position: fixed; width: 300px; top:50px; bottom: 0px; overflow-y: auto; display: none;}
         .showmenue { display: block !important;}
@@ -18,6 +19,7 @@
         a::before ~ ul ul {content: "+ ";}
         /* ul ul{background-color: #5387BF;} */
 
+        #content {min-height: 90vh;}
         #footer {color: #fff !important;background-color: #222 !important}
 
 
@@ -26,12 +28,14 @@
             #menue {display: none!important;}
         }
     </style>
+    
+    <script src="/prism/prism.js"></script>
 </head>
 
 <body>
     <div id="header" pos-t pos-sticky no-print></div>
     <nav id="menue" color-p2 hide-s no-print class="">Menue</nav>
-    <div id="content" h-10><h1>Lade ...</h1></div>
+    <div id="content"><h1>Lade ...</h1></div>
     <div id="footer" h-1 no-print>Footer</div>
 </body>
 
@@ -49,6 +53,7 @@
     addEventListener("hashchange", (e) => {
         menueElm.classList.add("showmenue");
         showSite($("#content"));
+        Prism.highlightAll();
     });
 
     // Header u. Footer laden
