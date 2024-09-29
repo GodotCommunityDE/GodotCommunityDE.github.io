@@ -3,4 +3,6 @@
     - [News 2](#/blog/news2)
 - [+ **Godot Engine**](#/godot/)
     [Transforms](#/godot/transform)
-- [**Info**](#/info/)
+- [+ **Info**](#/info/)
+    - [2D Grafik Programme](#/info/2dgrafik)
+    - [3D Grafik Programme](#/info/3dgrafik)

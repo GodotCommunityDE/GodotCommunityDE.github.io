@@ -27,6 +27,9 @@ export function parseMd(mdString, options) {
     // Fettschrift
     const regularBold = new RegExp("\\*\\*(.*?)\\*\\*", "g");
 
+    // Unterstrichen
+    const regularUnderline = new RegExp("__(.*?)__", "g");
+
     // ====================
     //   basis Variablen
     // ------------------
@@ -165,9 +168,14 @@ export function parseMd(mdString, options) {
             linkPos2 = newText.indexOf("](");
         } // while linkPos2
 
+        // Auf Unterstrichen prüfen
+        // @ts-ignore
+        newText = newText.replaceAll(regularUnderline, "<u>$1</u>");
+
         // Auf Fettschrift prüfen
         // @ts-ignore
         newText = newText.replaceAll(regularBold, "<b>$1</b>");
+
         return newText;
     };
 
@@ -261,6 +269,7 @@ export function parseMd(mdString, options) {
             // Spalten schliessen
             closeRowCol();
             newColAttribute = tagAttribute;
+            tagAttribute = "";
             return;
         }
 
@@ -277,7 +286,6 @@ export function parseMd(mdString, options) {
             if (!isRowCol) {
                 htmlString += "<" + colTag + newColAttribute + ">";
                 isRowCol = true;
-                tagAttribute = "";
                 newColAttribute = "";
             }
         } // Spalten Beginn
