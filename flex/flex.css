@@ -556,7 +556,7 @@ form::before,form::after{
 /* Zelle */
 /* wird verewndet wenn mehrere HTML TAG-Elemente in einem Block zusammengefasst werden 
    sonnst gilt jedes TAG-Element als Item */
-f-item,[f-item],.f-item{
+f-row > *, f-item,[f-item],.f-item{
   display: block;
   flex: 0 1 auto;
 }
@@ -597,7 +597,7 @@ f-item,[f-item],.f-item{
 /* Breiten fix */
 [w-fit],.w-fit{flex: 1 1 auto; min-width: 5%;}
 
-[w-max],.w-max{max-width: 1080px;margin-right: auto;margin-left: auto;}
+[w-max],.w-max{max-width: 1080px;}
 [w-xxl],.w-xxl{min-width: 1400px;}
 [w-xl],.w-xl{min-width: 1200px; max-width: 1399px;}
 [w-l],.w-l{width: 992px; max-width: 1199px;}
@@ -721,13 +721,47 @@ modal-co,[modal-co],.modal-co {
 /* X-Small < 576 */
 @media (max-width: 575px) {
   [hide-xs],.hide-xs{display: none !important}
-  f-row,[f-row],.f-row{flex-direction: column; flex-wrap: unset;}
+  f-row,[f-row],.f-row{
+    flex-direction: column; 
+    flex-wrap: unset;
+  }
+  f-row,[f-row],.f-row,f-row > *,[f-row] > *,.f-row > * {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 /* Small >= 576 < 768 */
-@media (min-widh: 576px) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 767px) {
   [hide-s],.hide-s{display: none !important}
-  f-row,[f-row],.f-row{flex-wrap: wrap;}  
+  
+  f-row,[f-row],.f-row
+  ,[w-66],[w-70],[w-75],[w-80],[w-90]
+  ,.w-66,.w-70,.w-75,.w-80,.w-90 {
+    flex-wrap: wrap;
+    width: 100% !important;
+  } 
+
+  f-row >*,[f-row]>*,.f-row>*, f-item,[f-item],.f-item
+  ,[w-fit],.w-fit {
+    flex: 1 1 40%;
+  }  
+
+  /* f-row,[f-row],.f-row
+  ,f-row >*,[f-row]>*,.f-row>*, f-item,[f-item],.f-item
+  ,[w-66],[w-70],[w-75],[w-80],[w-90],[w-fit]
+  ,.w-66,.w-70,.w-75,.w-80,.w-90,.w-fit
+  ,[ma-l],.ma-l,[ma-l-s],.ma-l-s
+  ,[ma-r],.ma-r,[ma-r-s],.ma-r-s
+  ,[ma-h],.ma-h,[ma-h-s],.ma-h-s
+  ,[ma-all],.ma-all,[ma-all-s],.ma-all-s
+  ,[ma-h-s],.ma-h-s,[ma-h-m],.ma-h-m
+  ,[ma-h-l],.ma-h-l,[ma-h-xl],.ma-h-xl
+  ,[ma-h-xxl],.ma-h-xxl {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }   */
 }
 
 /* Medium >= 768 < 992 */

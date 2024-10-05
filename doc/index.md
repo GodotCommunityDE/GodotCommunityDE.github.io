@@ -1,4 +1,4 @@
-[ color-p i-center i-middle pa-v-xxl]
+[ w-100 color-p i-center i-middle pa-v-xxl]
 ---
 # Das ist Index
 Eine Index Seite

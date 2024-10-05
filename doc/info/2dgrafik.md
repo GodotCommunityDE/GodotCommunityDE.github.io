@@ -12,7 +12,7 @@ Dies Grafikprogramm ist auf Zeichnen und Malen ausgelegt.
 
 ## Inkscape
 --- [ w-25]
-![Incscape](/img/2dgrafik/inkscape.svg) [ w-75]
+![Incscape](/img/2dgrafik/inkscape.svg)
 --- [ w-75]
 Vektor basierendes Grafikprogramm zu Erstellung von 2D Grafiken. Godot unterstützt zwar svg-Dateien, sie werden jedoch beim import zu Bitmapgrafiken umgewandelt.
 %
