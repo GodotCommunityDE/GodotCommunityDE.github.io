@@ -10,165 +10,26 @@
     <link rel="stylesheet" type="text/css" href="/flex/flex.css" />
     <link rel="stylesheet" type="text/css" href="/flex/flex-colors.css" />
     <link rel="stylesheet" type="text/css" href="/prism/prism.css" />
-    <style>
-        f-grid {
-            display: grid;
-            grid-template-rows: 50px auto 60px;
-            grid-template-columns: 300px auto;
-            height: 100vh;
-            width: 99.9%;
-        }
+    <link rel="stylesheet" type="text/css" href="/index.css" />
 
-        #header {
-            grid-column: 1 / 3;
-            grid-row: 1;
-            position: sticky;
-            top: 0px;
-        }
-
-        #index {
-            grid-column: 1 /3;
-            grid-row: 2;
-        }
-
-        #menue {
-            grid-column: 1;
-            grid-row: 2;
-            position: fixed;
-            width: 300px;
-            top: 50px;
-            bottom: 0px;
-            overflow-y: auto;
-        }
-
-        #index_footer {
-            grid-column: 1 / 3;
-            grid-row: 3;
-        }
-
-        #footer {
-            grid-column: 2 / 3;
-            grid-row: 3;
-        }
-
-        #content {
-            grid-column: 2;
-            grid-row: 2;
-        }
-
-        /* #menue {position: absolute; width: 300px; top: 50px; bottom:0px;  overflow-y: auto;} */
-
-        /*#content {margin-left: 320px;}
-        #footer {margin-left: 300px} */
-        
-        /*.noindex{margin-left: 0px !important; min-width: 100% !important;}*/
-
-        a::before ~ ul ul {content: "+ ";}
-        /* ul ul{background-color: #5387BF;} */
-
-        /*#content {min-height: 90vh;}
-        #footer {color: #fff !important;background-color: #222 !important}
-
-        #header img{max-height: 40px; max-width: 40px;}
-        */
-        @media (max-width: 767px) {
-            f-grid { grid-template-columns: 0px;}
-            #menue {grid-column: 0;}
-            /* #content,#footer{grid-column: 1 3 !important;} */
-        } 
-
-        @media print {
-            #content {margin-left: 0!important;}
-            #menue {display: none!important;}
-            f-grid {
-                grid: auto / auto;
-            }
-        }
-
-    </style>
-    
     <script src="/prism/prism.js"></script>
 </head>
 
 <body>
-<!--     <div id="header" pos-t-l pos-sticky no-print></div>
-    <nav id="menue" color-p hide-s hide-xs no-print class="hidden">Menue</nav>
-    <f-row w-100>
-        <f-item id="menue_col" no-print h-100 class="hidden" style="width: 300px;">
-            &nbsp;
-        </f-item>
-        <f-item w-max>
-            <f-row id="content" w-max><h1>Lade ...</h1></f-row>
-            <div id="footer" pa-v-l no-print>Footer</div>
-        </f-item>
-    </f-row>
- -->
     <f-grid>
         <div id="header" no-print></div>
-        <div id="index"></div>
-        <nav id="menue" color-p2 no-print hide-s hide-xs></nav>
+        <nav id="menue" color-p2 no-print></nav>
         <div id="content" w-max></div>
-        <div id="index_footer" color-darkgrey no-print></div>
         <div id="footer" color-darkgrey no-print></div>
     </f-grid>
+    <div id="toggle_menue" color-p2 no-print hide-m hide-l hide-xl hide-xxl>+</div>
 </body>
 
 <script type="module">
-    import {showSite, showContent, setSublist} from "./lidoc/lidoc.js";
+    import { main, setEvents } from "./index.js";
 
-    // Selectoren
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
-
-    // Elemente lesen
-    const headerElm = $("#header");
-    const indexElm = $("#index");
-    const menueElm = $("#menue");
-    const contentElm = $("#content");
-    const indexFooterElm = $("#index_footer");
-    const footerElm = $("#footer");
-
-    // Header u. Footer und Index laden
-    showContent(headerElm, "/doc/_header.md");
-    showContent(footerElm, "/doc/_footer.md");
-    showContent(indexFooterElm, "/doc/_footer.md");
-    showContent(indexElm, "/doc/index.md");
-    
-
-    // Menue Anzeigen wenn Hash
-    if (window.location.hash?.length > 2) {
-        menueElm.classList.remove("hidden");
-        contentElm.classList.remove("hidden");
-        footerElm.classList.remove("hidden");
-        indexElm.classList.add("hidden");
-        indexFooterElm.classList.add("hidden");
-    } else {
-        menueElm.classList.add("hidden");
-        contentElm.classList.add("hidden");
-        footerElm.classList.add("hidden");
-        indexElm.classList.remove("hidden");
-        indexFooterElm.classList.remove("hidden");
-    }
-
-    // Menues laden und Seite anzeigen
-    showContent(menueElm, "/doc/_menue.md").then(() =>{
-        // [sub-list] Erstellen
-        setSublist();
-        showSite($("#content"));
-    });
-
-    // Events
-    addEventListener("hashchange", (e) => {
-        if (window.location.hash?.length > 2) {
-            indexElm.classList.add("hidden");
-            indexFooterElm.classList.add("hidden");
-            menueElm.classList.remove("hidden");
-            contentElm.classList.remove("hidden");
-        }
-
-        showSite($("#content"));
-        Prism.highlightAll();
-    });
+    setEvents();
+    main();
 </script>
 
 </html>

@@ -1,7 +1,7 @@
 # 2D Grafik Programme
 
 ## Krita
---- [ w-25]
+--- [ w-25 text-c]
 ![Krita](/img/2dgrafik/krita.png)
 ---
 Dies Grafikprogramm ist auf Zeichnen und Malen ausgelegt.
@@ -11,8 +11,8 @@ Dies Grafikprogramm ist auf Zeichnen und Malen ausgelegt.
 
 
 ## Inkscape
---- [ w-25]
-![Incscape](/img/2dgrafik/inkscape.svg)
+--- [ w-25 text-c]
+![Incscape](/img/2dgrafik/inkscape.svg) [ height="100"]
 --- [ w-75]
 Vektor basierendes Grafikprogramm zu Erstellung von 2D Grafiken. Godot unterstützt zwar svg-Dateien, sie werden jedoch beim import zu Bitmapgrafiken umgewandelt.
 %
@@ -21,8 +21,8 @@ Vektor basierendes Grafikprogramm zu Erstellung von 2D Grafiken. Godot unterstü
 
 
 ## Gimp
---- [ w-25]
-![Gimp](/img/2dgrafik/gimp-big.png)
+--- [ w-25 text-c]
+![Gimp](/img/2dgrafik/gimp-big.png) [ height="100"]
 --- [ w-75]
 Dieses Bildbearbeitungsprogramm bietet uns eine Menge Funktionen um Fotos aufzuarbeiten.
 %

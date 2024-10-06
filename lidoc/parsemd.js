@@ -43,6 +43,7 @@ export function parseMd(mdString, options) {
         linkList: [],
     };
 
+    let tagAttribute = "";
     let newAttribute = "";
     let newColAttribute = "";
     let isData = false;
@@ -130,6 +131,7 @@ export function parseMd(mdString, options) {
      * @returns {string}
      */
     let checkText = function (text) {
+        if (!text) {return "";}
         let newText = text;
 
         // Auf Link oder Bild prüfen
@@ -146,9 +148,10 @@ export function parseMd(mdString, options) {
                 const part4 = newText.substring(endPos + 1);
 
                 // BildLink
-                newText = part1 + "<img" + newAttribute + " tag='" + part2 + "' src='" + part3 +
+                newText = part1 + "<img" + tagAttribute + " tag='" + part2 + "' src='" + part3 +
                     "'>" + part4;
                 site.imageList.push(part3);
+                tagAttribute = "";
             } else if (linkPos1 >= 0 && linkPos1 < linkPos2) {
                 // Link
                 const part1 = newText.substring(0, linkPos1);
@@ -233,12 +236,6 @@ export function parseMd(mdString, options) {
      * @returns {void}
      */
     let checkLine = function () {
-        // Wenn Attribute Zeile
-        if (trimLine.startsWith("[") && trimLine.endsWith("]")) {
-            newAttribute = " " + trimLine.substring(1, trimLine.length - 1);
-            return;
-        }
-
         // Bei Leerzeilen alles schliessen
         if (trimLine == "") {
             closeAllTags();
@@ -252,10 +249,14 @@ export function parseMd(mdString, options) {
         }
 
         // Ab hier ist keine Leerzeile
+        if (trimLine.startsWith("[") && trimLine.endsWith("]")) {
+            newAttribute = " " + trimLine.substring(1, trimLine.length - 1);
+            return;
+        }
 
-        // Auf Attribute prüfen
-        let tagAttribute = "";
+        // Wenn Tag Attribute
         if (trimLine.endsWith("]")) {
+            // Tag Attribute
             const pos1 = trimLine.lastIndexOf(" [");
             if (pos1 >= 0) {
                 tagAttribute = " " +
@@ -263,7 +264,6 @@ export function parseMd(mdString, options) {
                 trimLine = trimLine.substring(0, pos1);
             }
         }
-
 
         if (trimLine == "---") {
             // Spalten schliessen

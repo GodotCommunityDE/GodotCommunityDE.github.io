@@ -1,8 +1,8 @@
 # 3D Grafik Programme
 
 ## Blender
---- [ w-25]
-![Blender](/img/2dgrafik/blender_logo.png)
+--- [ w-25 text-c]
+![Blender](/img/2dgrafik/blender_logo.png) [ style="max-height:100px"]
 --- [ w-75]
 Eines der meist genutzten Programme, die im Zusammenhang mit der Godot-Engine genutzt werden.
 %
@@ -13,8 +13,8 @@ Mit Blender können wir 3D-Objekte modellieren, animieren und Texturtieren.
 
 
 ## MagicaVoxel
---- [ w-25 pos-rel]
-kein Logo [ pos-m]
+--- [ w-25 pos-rel hide-s hide-xs]
+kein Logo [ pos-m text-c]
 --- [ w-75]
 Ein Voxel Programm, mit dem man aus Blöcken, wie bei Minecraft, Modelle erstellen und auch für die Godot-Engine nutzen kann.
 %
@@ -23,8 +23,8 @@ Ein Voxel Programm, mit dem man aus Blöcken, wie bei Minecraft, Modelle erstell
 
 
 ## FreeCAD
---- [ w-25]
-![FreeCAD](/img/2dgrafik/freecad.svg) [ w-60]
+--- [ w-25 text-c]
+![FreeCAD](/img/2dgrafik/freecad.svg)
 --- [ w-75]
 Auch mit CAD (rechnerunterstütztes Konstruieren) lassen sich 3D-Objekte erstellen.
 %
