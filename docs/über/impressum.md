@@ -7,7 +7,7 @@ Inhalte erstellt von den Usern der deutschsprachigen Godot Community auf Discord
 Roman Huber
 3683 Yspertal
 
-Discord: https://discord.gg/fJqxPZQ
+Discord: https://discord.gg/Tr7Ma6E
 
 ## Links
 Abgesehen von den in § 17 des österreichischen E-Commcerce-Gesetzes geregelten Fällen übernimmt godot-community.de keine Haftung für die Inhalte der mit der Webseite verknüpften Webseiten oder URLs anderer Betreiber. godot-community.de hat keinen Einfluss auf die Gestaltung dieser Webseiten. Ebensowenig haftet godot-community.de für eine ständige Verfügbarkeit oder volle Funktionalität von Linkverknüpfungen zu Webseiten oder URLs anderer Betreiber.
