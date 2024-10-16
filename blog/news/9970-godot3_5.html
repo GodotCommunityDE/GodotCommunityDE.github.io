@@ -1,0 +1,1724 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Release Candidate RC 3">
+      
+      
+      
+        <link rel="canonical" href="https://godotcommunityde.github.io/blog/news/9970-godot3_5.html">
+      
+      <link rel="icon" href="../../img/icon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Godot 3.5 Änderungen - Godot Community DE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/gdcde.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-candidate-godot-35-rc-3" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Godot Community DE" class="md-header__button md-logo" aria-label="Godot Community DE" data-md-component="logo">
+      
+  <img src="../../img/icon_de.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Godot Community DE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Godot 3.5 Änderungen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        Blog
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../godot/index.html" class="md-tabs__link">
+        Godot
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../info/index.html" class="md-tabs__link">
+        Info
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../projekte/index.html" class="md-tabs__link">
+        Projekte
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%C3%BCber/community.html" class="md-tabs__link">
+        Über
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Godot Community DE" class="md-nav__button md-logo" aria-label="Godot Community DE" data-md-component="logo">
+      
+  <img src="../../img/icon_de.png" alt="logo">
+
+    </a>
+    Godot Community DE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../index.html">Blog</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          News
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="News" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          News
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9870-homepage_aenderungen.html" class="md-nav__link">
+        Community Homepage Änderungen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9880-godot_rust.html" class="md-nav__link">
+        Godot-rust Addon jetzt für Godot 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9890-godot_stiftung.html" class="md-nav__link">
+        Godot zieht in eine neue Stiftung
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9900-neue_links.html" class="md-nav__link">
+        Neue Godot Links
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9910-godot-reddit.html" class="md-nav__link">
+        Godot Reddit 100.000
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9920-godot4_beta4.html" class="md-nav__link">
+        Neue Godot 4 Beta 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9925-3d_character_controller.html" class="md-nav__link">
+        GDQuest neuer Charakter Controller
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9930-news_2022-10.html" class="md-nav__link">
+        Tools Links
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9940-homepage_umstellung.html" class="md-nav__link">
+        Homepage Umstellung
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9950-community_media.html" class="md-nav__link">
+        Community Bereiche
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9960-discord_threads.html" class="md-nav__link">
+        Discord Threads
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9965-godot_unternehmen.html" class="md-nav__link">
+        Godot Unternehmen gegründet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9967-discord_1000.html" class="md-nav__link">
+        Tausender Marke überschritten
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Godot 3.5 Änderungen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="9970-godot3_5.html" class="md-nav__link md-nav__link--active">
+        Godot 3.5 Änderungen
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#asynchronous-shader-compilation-caching-ubershader-gh-53411" class="md-nav__link">
+    Asynchronous shader compilation + caching (ubershader) (GH-53411)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-navigationserver-with-obstacle-avoidance-using-rvo2-gh-48395" class="md-nav__link">
+    Add NavigationServer with obstacle avoidance using RVO2 (GH-48395)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-interpolation-3d-gh-52846" class="md-nav__link">
+    Physics interpolation (3D) (GH-52846)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#occludershapepolygon-3d-gh-57361" class="md-nav__link">
+    OccluderShapePolygon (3D) (GH-57361)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-editor-port-gh-57747" class="md-nav__link">
+    Android editor port (GH-57747)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-label3d-and-textmesh-backported-from-godot-40-gh-61276-gh-61281" class="md-nav__link">
+    New Label3D and TextMesh backported from Godot 4.0 (GH-61276, GH-61281)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-scenetreetween-backported-from-godot-40-gh-60581" class="md-nav__link">
+    New SceneTreeTween backported from Godot 4.0 (GH-60581)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scene-unique-nodes-gh-60527" class="md-nav__link">
+    Scene unique nodes (GH-60527)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-push-pull-fetch-and-improved-diff-view-to-vcs-ui-gh-53900" class="md-nav__link">
+    Add push, pull, fetch and improved diff view to VCS UI (GH-53900)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#und-mehr" class="md-nav__link">
+    Und mehr!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9980-godot-3_4_4.html" class="md-nav__link">
+        Wartungsrelease - Godot 3.4.4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9990-alterBeitrag.html" class="md-nav__link">
+        Arbeiten an neuer Homepage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../godot/index.html">Godot</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Godot" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Godot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../godot/2d_player.html" class="md-nav__link">
+        2D Player
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          3d
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3d" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          3d
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../godot/3d/mesh_bearbeiten.html" class="md-nav__link">
+        Mesh bearbeiten
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../godot/3d/rotate_cam.html" class="md-nav__link">
+        Kamera Rotation 3D
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../godot/3d/text3d_textmesh.html" class="md-nav__link">
+        Text3d textmesh
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Allgemein
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Allgemein" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Allgemein
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../godot/allgemein/mischen_farben.html" class="md-nav__link">
+        Farbe mischen
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../info/index.html">Info</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Info" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Info
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Blender
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blender" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Blender
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/blender/blender_kurzanleitung.html" class="md-nav__link">
+        Blender 3.1 Kurzanleitung Objekte Editieren
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Links
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Links" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Links
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/links/2dgrafik.html" class="md-nav__link">
+        2D Grafik Programme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/links/3dprogramme.html" class="md-nav__link">
+        3D Programme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/links/godot.html" class="md-nav__link">
+        Godot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/links/tools.html" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Sonstiges
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sonstiges" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Sonstiges
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/sonstiges/git.html" class="md-nav__link">
+        Git und GitHUB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/sonstiges/mkdocs.html" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/sonstiges/python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../projekte/index.html">Projekte</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Projekte" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Projekte
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Über
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Über" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Über
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%C3%BCber/community.html" class="md-nav__link">
+        Die Godot Community
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%C3%BCber/homepage.html" class="md-nav__link">
+        Homepage Mittarbeit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%C3%BCber/impressum.html" class="md-nav__link">
+        Impressum
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#asynchronous-shader-compilation-caching-ubershader-gh-53411" class="md-nav__link">
+    Asynchronous shader compilation + caching (ubershader) (GH-53411)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-navigationserver-with-obstacle-avoidance-using-rvo2-gh-48395" class="md-nav__link">
+    Add NavigationServer with obstacle avoidance using RVO2 (GH-48395)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-interpolation-3d-gh-52846" class="md-nav__link">
+    Physics interpolation (3D) (GH-52846)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#occludershapepolygon-3d-gh-57361" class="md-nav__link">
+    OccluderShapePolygon (3D) (GH-57361)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-editor-port-gh-57747" class="md-nav__link">
+    Android editor port (GH-57747)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-label3d-and-textmesh-backported-from-godot-40-gh-61276-gh-61281" class="md-nav__link">
+    New Label3D and TextMesh backported from Godot 4.0 (GH-61276, GH-61281)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-scenetreetween-backported-from-godot-40-gh-60581" class="md-nav__link">
+    New SceneTreeTween backported from Godot 4.0 (GH-60581)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scene-unique-nodes-gh-60527" class="md-nav__link">
+    Scene unique nodes (GH-60527)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-push-pull-fetch-and-improved-diff-view-to-vcs-ui-gh-53900" class="md-nav__link">
+    Add push, pull, fetch and improved diff view to VCS UI (GH-53900)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#und-mehr" class="md-nav__link">
+    Und mehr!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="release-candidate-godot-35-rc-3">Release candidate: Godot 3.5 RC 3</h1>
+<p><sup>von: Rémi Verschelde - 1 Juni 2022<br />
+Originaltext: <a href="https://godotengine.org/article/release-candidate-godot-3-5-rc-3" target="_blank">Link</a></sup></p>
+<h2 id="asynchronous-shader-compilation-caching-ubershader-gh-53411">Asynchronous shader compilation + caching (ubershader) (GH-53411)</h2>
+<p>Eine lang erwartete Lösung für das Stottern bei der Shader-Kompilierung unter OpenGL, mit freundlicher Genehmigung von Pedro J. Estébanez (RandomShaper)!</p>
+<p>Dieses neue System verwendet einen "Ubershader" (großer Shader, der alle Funktionen unterstützt, langsam, aber beim Start kompiliert), um zunächst alle Shader auszufüllen, während die effizienteren und materialspezifischen Shader asynchron kompiliert und für zukünftige Durchläufe zwischengespeichert werden.</p>
+<p>Das bedeutet, dass die Materialien beim ersten Durchlauf für ein oder zwei Sekunden etwas anders aussehen können, aber es sollte keine Kompilierungsverzögerungen mehr geben. Bitte testen Sie dies gründlich und lassen Sie uns wissen, wie es sich in Ihren Projekten bewährt.</p>
+<h2 id="add-navigationserver-with-obstacle-avoidance-using-rvo2-gh-48395">Add NavigationServer with obstacle avoidance using RVO2 (GH-48395)</h2>
+<p>Jake Young (Duroxxigar) hat das überarbeitete und stark verbesserte Navigationssystem zurückportiert, das Andrea Catania (AndreaCatania) bereits 2020 für Godot 4.0 implementiert hatte! Und dann wurden viele alte und neue Navigationsprobleme von smix8 und Pawel Lampe (Scony) behoben.</p>
+<p>Der neue NavigationServer unterstützt die Hindernisvermeidung mit der RVO2-Bibliothek, und Navigationsnetze können nun zur Laufzeit gebacken werden. Die gesamte API ist jetzt viel flexibler als früher.</p>
+<p>Bei der Rückportierung wurde versucht, die API-Kompatibilität im Rahmen des Möglichen zu erhalten, aber das zugrundeliegende Verhalten wird sich ändern, vor allem um viel mehr Funktionen und Flexibilität zu bieten. Wir gehen davon aus, dass alle Benutzer gerne auf den neuen NavigationServer umsteigen werden, aber bitte melden Sie Probleme, wenn Sie beim Upgrade von 3.4 Verhaltensänderungen zum Schlechteren feststellen.</p>
+<h2 id="physics-interpolation-3d-gh-52846">Physics interpolation (3D) (GH-52846)</h2>
+<p>Während die Physik in Godot mit einer festen Tickrate abläuft, können die Frames je nach der Hardware des Spielers mit einer Vielzahl von Frame-Raten angezeigt werden. Dies kann zu einem Problem führen, wenn die Bewegung von Objekten (die in der Regel auf Physik-Ticks auftreten) nicht mit den gerenderten Frames übereinstimmt, was zu unschönen Rucklern führt.</p>
+<p>Dank der Expertise von lawnjelly gibt es jetzt eine nette neue Option, die in den Projekteinstellungen versteckt ist. Schalten Sie physics/common/physics_interpolation ein, und Godot wird nun automatisch Objekte auf gerenderten Frames interpolieren, so dass sie super glatt aussehen.</p>
+<p>Um davon zu profitieren, sollten Sie Ihre Objekte bewegen und Ihre Spiellogik in _physics_process() ausführen. Dies stellt sicher, dass euer Spiel auf allen Rechnern gleich läuft. Alle Details sind in den aktualisierten Dokumenten zu finden.</p>
+<p>Fixed Timestep Interpolation ist vorerst nur für 3D verfügbar, aber wir planen, nach anfänglichem Feedback und Bugfixing der 3D-Version, 2D-Unterstützung hinzuzufügen.</p>
+<h2 id="occludershapepolygon-3d-gh-57361">OccluderShapePolygon (3D) (GH-57361)</h2>
+<p>Nach dem OccluderShapeSphere in Version 3.4 bietet lawnjelly nun mit dem OccluderShapePolygon eine anpassungsfähigere und einfachere Möglichkeit, um grundlegende Verdeckungen zu beseitigen. Fügen Sie einen Occluder-Knoten zu Ihrer Szene hinzu und wählen Sie ein OccluderShapePolygon. Dieses sollte zunächst als Quad angezeigt werden.</p>
+<p>Sie können das Polygon mit der Node-Transformation verschieben, die Ecken ziehen, um es neu zu formen, und Punkte löschen. Alles, was sich hinter dem Polygon befindet, wird aus der Ansicht entfernt.</p>
+<p>Es ist wirklich so einfach, sie an einer beliebigen Stelle in Ihrem Spiel-Level zu platzieren. Lesen Sie die aktualisierte Dokumentation für Details.</p>
+<h2 id="android-editor-port-gh-57747">Android editor port (GH-57747)</h2>
+<p>Vor zwei Jahren (!) begann thebestnom mit der Arbeit an einer Android-Portierung des Godot-Editors (GH-36776). Da der Godot-Editor mit Godot selbst gebaut wird, war es nicht allzu schwierig, sich vorzustellen, den Editor mit einigen Änderungen am Buildsystem für Android zu kompilieren. Aber es war eine Menge Arbeit nötig, um diese kompilierte Version auf einem Android-Gerät vernünftig zum Laufen zu bringen, mit verbesserter Maus- und Tastaturunterstützung, besserer Toucheingabe und der Möglichkeit, das Projekt über dem Editor wie auf dem Desktop laufen zu lassen.</p>
+<p>Mit vielen Tests von interessierten Nutzern ging es langsam, aber stetig voran, und unsere Android-Maintainerin Fredia Huya-Kouadio (m4gr3d) gab dieser Arbeit den letzten Schliff, um sie für Godot 3.5 (GH-57747) zusammenzuführen. Die aktuelle Version hat nicht viele mobile-spezifische Änderungen, so dass sie nur auf einem Tablet mit Tastatur und Maus wirklich benutzbar ist - aber die Grundlage ist da, um sie zu verbessern, und wir sind an Ihrem Feedback und Ihren Ideen interessiert, wie man das Godot-Erlebnis noch mobilfreundlicher machen kann!</p>
+<p>Von nun an finden Sie Builds des Android-Editors als <godot_version>_android_editor.apk im Download-Repository. Beachten Sie, dass die Builds derzeit nicht signiert sind, so dass Sie bei der Installation eine Warnung erhalten. Probieren Sie es aus!</p>
+<p>Dank hilfreicher Beiträge von Dan Edwards (Gromph) und Péter Magyar (Relintai) konnte Fredia auch den Modus für niedrige Prozessorauslastung unter Android (GH-59606) beheben, den der Editor-Port verwendet. Es sollte jetzt für Benutzer, die Nicht-Spiel-Anwendungen oder Nicht-Echtzeit-Spiele auf Android machen und wollen die Lebensdauer der Batterie zu bewahren gut funktionieren.</p>
+<h2 id="new-label3d-and-textmesh-backported-from-godot-40-gh-61276-gh-61281">New Label3D and TextMesh backported from Godot 4.0 (GH-61276, GH-61281)</h2>
+<p>Lang erwartet, bietet Godot jetzt einen Label3D-Knoten, um Text in 3D-Szenen anzuzeigen. Und für fortgeschrittene Anwendungsfälle gibt es jetzt auch TextMesh, um 3D-Meshes aus Schriftglyphen zu generieren, so dass Sie Word Art zu Ihren Szenen hinzufügen können ;)</p>
+<p>Beide Funktionen wurden von unserem Text-Rendering-Experten bruvzg im Master-Zweig für Godot 4.0 implementiert und in 3.5 zurückportiert. Sie wurden erst spät in den Release-Prozess (3.5 RC 2) integriert, sollten aber in sich geschlossen sein und daher die Stabilität anderer Funktionen nicht beeinträchtigen. Testen Sie sie auf jeden Fall und melden Sie jeden Fehler oder jede Unannehmlichkeit mit der Implementierung.
+<a href="/homepage/godot/3d/text3d_textmesh.html">weitere Beschreibung</a></p>
+<h2 id="new-scenetreetween-backported-from-godot-40-gh-60581">New SceneTreeTween backported from Godot 4.0 (GH-60581)</h2>
+<p>Tomasz Chabora (KoBeWi) hat die Tween-Klasse in Godot 4.0 komplett überarbeitet, um sie viel leistungsfähiger und flexibler zu machen. Die ersten Tester schienen es zu mögen, und Haoyu Qiu (timothyqiu) beschloss, die Funktion als SceneTreeTween in Godot 3.5 zurückzuportieren (um das bereits vorhandene Tween beizubehalten und so die Kompatibilität zu wahren). Sie haben nun also zwei getrennte Tween-Implementierungen und können entweder die ursprüngliche 3.x-Implementierung weiter verwenden oder die neue API von 4.0 übernehmen.</p>
+<h2 id="scene-unique-nodes-gh-60527">Scene unique nodes (GH-60527)</h2>
+<p>Um die häufige Aufgabe des Zugriffs auf bestimmte Knoten aus Skripten zu erleichtern, fügte Juan Linietsky (reduz) das Konzept der "eindeutigen Szenennamen" für Knoten im Master-Zweig (GH-60298) hinzu, und Tomasz hat es für 3.5 zurückportiert. Knoten mit einem eindeutigen Szenennamen können innerhalb ihrer Szene einfach referenziert werden, indem ein neuer %-Namenspräfix verwendet wird, etwa so: get_node("%MyUniqueNode"). Dies ist besonders nützlich für die GUI, wenn Sie einen bestimmten Kontrollknoten finden müssen, der sich im Szenenbaum verschieben kann, wenn Sie Dinge umgestalten.</p>
+<h2 id="add-push-pull-fetch-and-improved-diff-view-to-vcs-ui-gh-53900">Add push, pull, fetch and improved diff view to VCS UI (GH-53900)</h2>
+<p>Die Arbeit von Meru Patel (Janglee123) vom Google Summer of Code 2020 wurde von Twarit Waikar (ChronicallySerious), einem ehemaligen Teilnehmer des GSoC 2019, fortgesetzt und aktualisiert.</p>
+<p>What is it? Viele neue Funktionen für die Integration von Versionskontrollsystemen (VCS) in den Godot-Editor, wie z.B. Push-, Pull- und Fetch-Operationen, sowie eine sehr schöne Diff-Ansicht UI. Alle diese Funktionen wurden in das offizielle Git-Integrations-Plugin implementiert. Auf der Seite Releases finden Sie die neueste Version des Plugins 2.x mit Unterstützung für Godot 3.5.</p>
+<h2 id="und-mehr">Und mehr!</h2>
+<ul>
+<li>3D: Hinzufügen der Renderpriorität für Label3D-Knoten und Sprite3D-Materialien (GH-61276).</li>
+<li>3D: Hinzufügen von TextMesh und Aufzeigen von dynamischen Schriftvektorumrissen (GH-61281).</li>
+<li>Android: Erste Portierung des Godot-Editors (GH-57747).</li>
+<li>Android: Behebung von Flackerproblemen bei niedrigem Prozessormodus (GH-59606).</li>
+<li>Android: Aktualisierung der Standard-Anzeigeskala des Editors, Größenänderung der Fenster möglich (GH-59868, GH-59861, GH-59880).</li>
+<li>Android: Korrektur der Logik zum Neustart der Godot-Anwendung (GH-61332).</li>
+<li>Animation: Option zum Einfügen von Animationen als Duplikat hinzugefügt (GH-60226).</li>
+<li>Animation: Neues SceneTreeTween zurückportiert von Godot 4.0 (GH-60581).</li>
+<li>Animation: Fix AnimatedSprite gibt animation_finished bei Änderung der Abspielrichtung nicht aus (GH-61085).</li>
+<li>Audio: Ermöglicht die Konfiguration des Schleifenmodus beim WAV-Import (GH-59170).</li>
+<li>Audio: Instanz-Audiostreams vor AudioServer::lock-Aufruf (GH-59413).</li>
+<li>Audio: Fix Absturz in AudioServer beim Umschalten von Audiogeräten mit unterschiedlicher Anzahl von Audiokanälen (GH-59778).</li>
+<li>C#: Android AAB Export lädt keine nativen Bibliotheken mehr (GH-57420).</li>
+<li>Kern: Hinzufügen von eindeutigen Szenenknoten (GH-60527).</li>
+<li>Kern: Hinzufügen von GradientTexture2D (GH-54824).</li>
+<li>Kern: Anheften von Eigenschaftswerten zulassen + Konsistente Eigenschaftsvorgaben (GH-52943).</li>
+<li>Kern: Unterstützung des tiefen Vergleichs von Array und Dictionary (GH-42625).</li>
+<li>Kern: Sichtbarkeit zu CanvasLayer hinzufügen (GH-57900).</li>
+<li>Kern: Hinzufügen eines Signals, um zu benachrichtigen, wenn Kinderknoten den Baum betreten oder verlassen (GH-57541).</li>
+<li>Kern: Hinzufügen einer Füllmethode zu Array und Pool*Array (GH-60426).</li>
+<li>Kern: OS.move_to_trash() freigeben (GH-60542).</li>
+<li>Kern: Crash-Handler: Verwendung von print_error, um Backtrace in Protokolle aufzunehmen (GH-60782).</li>
+<li>Kern: AStar/AStar2D mit Nullpunktgewicht zulassen (GH-60812).</li>
+<li>Kern: Hinzufügen von Suchmethoden für Pool-Arrays (GH-60856).</li>
+<li>Kern: Interpolationsmodi zu Gradient hinzufügen (GH-60982).</li>
+<li>Debugger: Korrektur der Inspektion von verschachtelten Dictionaries/Arrays (GH-60737).</li>
+<li>Fehlersuchprogramm: Hinzufügen der --debug-server Kommandozeilenoption, um auf eingehende Verbindungen zu warten (GH-60819).</li>
+<li>Editor: Hinzufügen von Push, Pull, Fetch und verbesserter Diff-Ansicht zur VCS UI (GH-53900).</li>
+<li>Editor: Verbesserte ColorPicker Voreinstellungen (GH-54439).</li>
+<li>Editor: Hinzufügen der Option, nur wichtige Aktualisierungen neu zu zeichnen (GH-53463).</li>
+<li>Editor: Verbesserte Bereichsauswahl im Ansichtsfenster des 3D-Editors (GH-58252).</li>
+<li>Editor: Eigenschaftspfade und Kategorien übersetzbar machen (GH-58634).</li>
+<li>Editor: Hinzufügen eines Umschalters für den Eigenschaftsnamenstil zum Inspektor (GH-59313).</li>
+<li>Editor: Hinzufügen einer Inspektorvorschau für BitMap (GH-60700).</li>
+<li>Editor: Erstellen von Onready-Variablen beim Fallenlassen von Knoten und Halten der Strg-Taste (GH-60879).</li>
+<li>Editor: Wechselt nur zum Knoten, wenn der Knoten gezogen wird (GH-61162).</li>
+<li>Exportieren: Verbessertes Laden und Exportieren von eingebetteten PCKs (GH-60580).</li>
+<li>GDScript: Korrektur der Variablentypeninferenz bei Freigabe (GH-57851).</li>
+<li>GDScript: Erzwingt keine Standardwerte für den Export-Hinweistyp (GH-58686).</li>
+<li>GDScript: Aktivieren von Methodentyp-Informationen bei Release-Builds (GH-59793).</li>
+<li>GUI: FlowContainer hinzufügen (GH-57960).</li>
+<li>GUI: Ausrichtungsoptionen für Schaltflächensymbole hinzufügen (GH-57771).</li>
+<li>GUI: Typvariationen zum Thema hinzufügen (GH-57942).</li>
+<li>GUI: Unterstützung für WOFF2-Schriftarten und Brotli-Decoder hinzugefügt (GH-59522).</li>
+<li>GUI: Hinzufügen einer Skew Eigenschaft zu StyleBoxFlat (GH-60592).</li>
+<li>GUI: Verschiedene Verbesserungen an OptionButton (GH-61102).</li>
+<li>HTML5: Aktivieren des mbedTLS-Moduls für das Crypto-Objekt (GH-61402).</li>
+<li>Eingabe: Erlaubt das Zuordnen von Scancodes zum aktuellen Layout (GH-56015).</li>
+<li>Internationalisierung: Hinzufügen von Unterstützung für binäre MO-Übersetzungsdateien (GH-59522).</li>
+<li>Linux: window_maximized funktioniert nicht mehr zuverlässig (GH-59767).</li>
+<li>Linux: Lesen und Speichern von Joypad-Ereignissen in einem separaten Thread (GH-56126).</li>
+<li>macOS: Implementiert Ad-hoc-Signierung von Linux/Windows (GH-51550).</li>
+<li>Navigation: Hinzufügen von NavigationServer mit Hindernisvermeidung durch RVO2 (GH-48395).</li>
+<li>Navigation: Viele Korrekturen und Verbesserungen für den neuen NavigationServer (Thema:Navigation PRs).</li>
+<li>Netzwerken: Hinzufügen von Proxy-Unterstützung für HTTPClient und den Editor (GH-55988).</li>
+<li>
+<p>Physik: Hinzufügen einer festen Zeitschritt-Interpolation für 3D (GH-52846).  </p>
+<ul>
+<li>Das 2D-Äquivalent wird zu einem späteren Zeitpunkt hinzugefügt.</li>
+</ul>
+</li>
+<li>
+<p>Physik: Geschoss: KinematicBody Compound Shape Kollisionen behoben (GH-56801).  </p>
+<ul>
+<li>Behebt viele Probleme mit KinematicBody-Kollisionen am Schnittpunkt von Meshes bei der Verwendung von Bullet. Dies wurde relativ spät integriert (3.5 RC 2), bitte testen Sie es unbedingt.</li>
+</ul>
+</li>
+<li>Rendering: Asynchrone Shader-Kompilierung + Zwischenspeicherung (ubershader) (GH-53411).</li>
+<li>Rendering: Hinzufügen der Eigenschaft material_overlay zu MeshInstance (GH-50823).</li>
+<li>Rendering: Schnelleres Zeichnen von Linien im Editor - Path2D und draw_line (GH-54377).</li>
+<li>Rendering: Hinzufügen von OccluderShapePolygon (GH-57361).</li>
+<li>Rendering: Hinzufügen von Unterstützung für das Speichern mehrerer Bilder in BakedLightmap (GH-58102).</li>
+<li>Rendering: Binden von Mesh-Merge-Funktionalität in MeshInstance (GH-57661).</li>
+<li>Rendering: GLES2: Entpacken von Blend Shape Arrays wenn nötig (GH-60829).</li>
+<li>Rendering: GLES3: Entbinden des Vertex-Puffers vor der Berechnung von Blend Shapes (GH-60832).</li>
+<li>Rendering: Portale: Anzeige von Rasterkarten im globalen Modus (GH-60851).</li>
+<li>Rendering: Fix Viewport mit transparentem Hintergrund, der zu schwarzem Hintergrund wird, wenn FXAA oder Debanding aktiviert ist (GH-54585).</li>
+<li>Shader: Viele Verbesserungen von Master zurückportiert (GH-56794).</li>
+<li>UWP: Fix für den Export von GDNative DLLs (GH-61262).</li>
+<li>VisualShader: Hinzufügen von Hinweisen und Standardwerten zu den Uniform Nodes (GH-56466).</li>
+<li>Windows: Verbessertes Konsolenhandling und Ausführen (GH-55987).  <ul>
+<li>Dies ändert die Handhabung der Editor-Konsole so, dass sie der auf Unix-Systemen (Linux und macOS) entspricht. Godot wird also nicht standardmäßig mit einer Konsole geöffnet, aber Sie können die Konsolenausgabe sehen, wenn Sie ihn selbst von einer Konsole aus starten. Sie können ein Batch-Skript oder eine Verknüpfung erstellen, um Godot automatisch von einer Konsole zu starten, wie in früheren Versionen.</li>
+</ul>
+</li>
+<li>Windows: Implementierung einer begrenzten Unterstützung für Surrogatpaare (bessere UTF-8-Unterstützung, Emoji-Schriftarten) (GH-54625).</li>
+<li>Windows: Versuchen Sie, die Ausgabe von OS::execute() in Unicode zu konvertieren (GH-60920).</li>
+<li>Aktualisierungen der Bibliotheken von Drittanbietern: bullet 3.24, freetype 2.12.1, pcre2 10.40, CA Zertifikate (2022-03-31).</li>
+<li>Aktualisierungen der Klassenreferenzen und Übersetzungen.</li>
+</ul>
+<p>All dies muss gründlich getestet werden, um sicherzustellen, dass sie in der kommenden Version 3.5-Stable wie vorgesehen funktionieren.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Zurück zum Seitenanfang
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="9967-discord_1000.html" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Tausender Marke überschritten" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Tausender Marke überschritten
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="9980-godot-3_4_4.html" class="md-footer__link md-footer__link--next" aria-label="Weiter: Wartungsrelease - Godot 3.4.4" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Wartungsrelease - Godot 3.4.4
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Holger Winter / Kuhn Chris / Roman Huber
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/Tr7Ma6E" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541zM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.reddit.com/r/GodotCommunityDE/" target="_blank" rel="noopener" title="www.reddit.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@godotcommunityde" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/GodotCommunityDE" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "content.code.copy", "content.code.annotate"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>
