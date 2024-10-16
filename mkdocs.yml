@@ -1,5 +1,5 @@
 site_name: Godot Community DE
-copyright: Copyright &copy; 2023 Holger Winter / Kuhn Chris / Roman Huber
+copyright: Copyright &copy; 2024 Holger Winter / Kuhn Chris / Roman Huber
 use_directory_urls: false
 site_url: https://godotcommunityde.github.io/
 
@@ -9,7 +9,7 @@ extra_css:
 extra:
   social:
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/fJqxPZQ
+      link: https://discord.gg/Tr7Ma6E
     - icon: fontawesome/brands/reddit
       link: https://www.reddit.com/r/GodotCommunityDE/
     - icon: fontawesome/brands/youtube
