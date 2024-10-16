@@ -2,7 +2,7 @@
 
 ## Community Beschreibung
 Die deutschsprachige Godot-Community ist ein Treffpunkt von deutschsprachigen Entwicklern die mit der Godot-Engine Spiele und Apps erstellen.
-Dieser Zusammenschluss ist auf einem [Discord](https://discord.gg/fJqxPZQ)-Server entstanden.
+Dieser Zusammenschluss ist auf einem [Discord](https://discord.gg/Tr7Ma6E)-Server entstanden.
 
 Der Discord-Server wurde Anfang 2019 erstellt und zählt mittlerweile über 1000 Mitglieder aus verschiedensten Ländern.
 
