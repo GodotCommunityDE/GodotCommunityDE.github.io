@@ -14,7 +14,7 @@ var my_vector = Vector2(7,10)
 Ein Vektor ist am einfachsten anhand eines Pfeils erklärbar. Die Pfeilspitze zeigt an einen Punkt welcher bezugnehmend zum Startpunkt über die zwei Maße von X und Y bestimmt wird.
 In Godot wird dieser Vektor folgendermaßen festgelegt:
 --- [ w-4]
-![alt text](/doc/godot/img/vector2d_1.png)
+![alt text](/godot/img/vector2d_1.png)
 ---
 
 
@@ -32,7 +32,7 @@ my_pos = my_pos + bewegung		# my_pos = (7,10) + (11,-5) = (18,5)
 --- [ w-6]
 Über das Addieren von zwei Vektoren kann beispielsweise das Verschieben eines Objektes berechnet werden.
 --- [ w-6]
-![alt text](/doc/godot/img/vector2d_add.png)
+![alt text](/godot/img/vector2d_add.png)
 ---
 
 
@@ -41,54 +41,55 @@ my_pos = my_pos + bewegung		# my_pos = (7,10) + (11,-5) = (18,5)
 {{ :godot:syntax:vecsub.png?300}}
 Wenn wir von der Position des Ziels die Spieler Position Subtrahieren erhalten wir einen Vektor welcher von unserer Position aufs Ziel zeigt. (bläulicher Vektor = grüner Vektor – schwarzer Vektor)
 
-<code gdskript>
+```gdscript
 var my_pos = Vector2(11,5)
 var ziel_pos = Vector2(7,10)
 var ziel_vec = ziel_pos - my_pos	# ziel_vec = (7,10) – (11,5) = (-4,5)
-</code>
+```
 
-===== Multiplizieren =====
+## Multiplizieren
 Multiplizieren wir beide Werte eines Vektors mit der gleichen Zahl, so verlängern(oder verkürzen) sich diese ohne dessen Richtung zu ändern.
 
-<code gdskript>
+```gdscript
 var my_vec = Vector2(2,3)
 my_vec *= 2				#my_vec = (2,3) * 2 = (4,6)
-</code>
+```
 
-===== Richtung =====
+## Richtung
 Um die Richtung eines Vektors zu ermitteln, benutzen wir die Funktion angle()
 
-<code gdskript>
+```gdscript
 var winkel = 0
 winkel = my_vec.angle()	# der Winkel wird jedoch in Bogenmaß ausgegeben!
-</code>
+```
 
-**Richtungsvektor**\\
+**Richtungsvektor**
 Um aus einer Richtung einen Vektor mit der Länge eins zu generieren, benutzen wir folgende Berechnung:
 
-<code gdskript>
+```gdscript
 var RichtungsVec = Vector2(cos(angle), sin(angle))
-</code>
+```
 
-==== Bogenmaß nach Grad ====
-<code gdskript>
+## Bogenmaß nach Grad
+```gdscript
 Grad = Bogenmass * 180/PI	# 57,29577~
 Grad = rad2deg(Bogenmass)
-</code>
+```
 
-==== Grad nach Bogenmaß ====
-<code gdskript>
+## Grad nach Bogenmaß
+```gdscript
 Bogenmass = Grad * PI/180	# 0,017453~
 Bogenmass = deg2rad(Grad)
-</code>
+```
 
-===== Länge =====
+## Länge
 Um die Länge eines Vektors zu ermitteln, benutzen wir die Funktion length()
 
-<code gdskript>
+```gdscript
 var lang = 0
 lang = my_vec.length()
-</code>
+```
+
 
 Alternativ gibt es zwei Funktionen zur Umrechnung:
 | Vector2 | cartesian2polar ( float x, float y ) | Konvertiert einen Vector (x y) in das Polarkoordinatensystem (Länge und Winkel) |

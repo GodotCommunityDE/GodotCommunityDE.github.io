@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Godot Community DE</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" type="text/css" href="/flex/flex.css" />
+    <link rel="stylesheet" type="text/css" href="/flex/colors.css" />
+    <link rel="stylesheet" type="text/css" href="/prism/prism.css" />
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+
+    <script src="/prism/prism.js"></script>
+</head>
+
+<body>
+    <f-grid>
+        <div id="header" no-print></div>
+        <nav id="menue" color-p2 no-print></nav>
+        <div id="content" w-max></div>
+        <div id="footer" color-darkgrey no-print></div>
+    </f-grid>
+    <div id="toggle_menue" color-p2 no-print hide-m hide-l hide-xl hide-xxl>+</div>
+</body>
+
+<script type="module">
+    import { main, setEvents } from "./index.js";
+
+    setEvents();
+    main();
+</script>
+
+</html>
