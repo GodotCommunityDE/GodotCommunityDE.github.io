@@ -1,11 +1,27 @@
 // ===========================
 //   Markdown Dateien Parsen
-// 2024-09-08
+// 2024-11-12
 // ===========================
 // @ts-check
 
-/** @typedef {import("./types.d.ts").ParseOptions} ParseOptions */
-/** @typedef {import("./types.d.ts").SiteInfo} SiteInfo */
+// =====================================
+//   Typen
+// --------
+
+/**
+ * @typedef {object} ParseOptions
+ * @property {string} [rowTag] - TagName für die Zeilen
+ * @property {string} [colTag] - TagName für sie Spalten
+ */
+
+/**
+ * @typedef {object} SiteInfo
+ * @property {Map<string,string>} html - Map mit HTML-String's nach dem Parsen. Der Standard Key ist "content"
+ * @property {Object<string,any>} data - Objekt Mit Header Daten der Seite
+ * @property {string[]} imageList - Liste mit allen Bild-URL's der Seite
+ * @property {string[]} linkList - Liste mit allen Links der Seite
+ */
+
 
 
 /**
@@ -46,6 +62,8 @@ export function parseMd(mdString, options) {
     let tagAttribute = "";
     let newAttribute = "";
     let newColAttribute = "";
+    /** @type {string[]} */
+    let tableColAttributes = [];
     let isData = false;
     let isCode = false;
     let isRow = false;
@@ -54,6 +72,7 @@ export function parseMd(mdString, options) {
     let isLi = false;
     let isP = false;
     let isTable = false;
+    let isHTML = false;
 
     // HTML String
     let htmlString = "";
@@ -61,6 +80,8 @@ export function parseMd(mdString, options) {
     let lastLine = "";
     let step = 0;
     let lastStep = 0;
+    /** @type {number[]} */
+    let stepList = [];
     let listTag = "ul";
     let lastKey = "";
     /** @type {string[]} */
@@ -72,20 +93,30 @@ export function parseMd(mdString, options) {
 
     // Alle Tags schliessen
     let closeAllTags = function () {
+        isHTML = false;
         if (isP) {
             htmlString += "</p>";
             isP = false;
         }
         if (isLi) {
-            htmlString += "</li>";
+            const stepListLength = stepList.length;
+
+            // Wenn bereits ein List-Item
+            for (let i = 0; i < stepListLength; i++) {
+                htmlString += "</li></" + listTag + ">";
+            }
+            stepList.splice(0);
+
             isLi = false;
+            isList = false;
         }
         if (isList) {
             htmlString += "</" + listTag + ">";
             isList = false;
         }
         if (isTable) {
-            htmlString += "</tr></thead><tbody></tbody></table>";
+            htmlString += "</table>";
+            tableColAttributes = [];
             isTable = false;
         }
         if (isRowCol) {
@@ -115,7 +146,8 @@ export function parseMd(mdString, options) {
             isList = false;
         }
         if (isTable) {
-            htmlString += "</tr></thead><tbody></tbody></table>";
+            htmlString += "</table>";
+            tableColAttributes = [];
             isTable = false;
         }
         if (isRowCol) {
@@ -131,7 +163,7 @@ export function parseMd(mdString, options) {
      * @returns {string}
      */
     let checkText = function (text) {
-        if (!text) {return "";}
+        if (!text) { return ""; }
         let newText = text;
 
         // Auf Link oder Bild prüfen
@@ -160,9 +192,10 @@ export function parseMd(mdString, options) {
                 const part4 = newText.substring(endPos + 1);
 
                 // Link
-                newText = part1 + "<a href='" + part3 + "'>" + part2 + "</a>" +
+                newText = part1 + "<a" + tagAttribute + " href='" + part3 + "'>" + part2 + "</a>" +
                     part4;
                 site.linkList.push(part3);
+                tagAttribute = "";
             } else {
                 // Abbrechen bei keinem Gültigen Link oder Bild
                 break;
@@ -188,7 +221,8 @@ export function parseMd(mdString, options) {
      * @returns {void}
      */
     let checkListe = function (isSorted) {
-        if (!trimLine || !trimLine.startsWith("- ")) return;
+        // Prüfung passiert vor Aufruf dieser Funktion
+        //if (!trimLine || !trimLine.startsWith("- ")) return;
 
         // ListTag
         listTag = "ul";
@@ -196,12 +230,17 @@ export function parseMd(mdString, options) {
             listTag = "ol";
         }
 
-        // Text
-        let text = trimLine.substring(2);
+        // Text  "- " oder "1. " entfernen
+        let text = trimLine.substring(trimLine.indexOf(" ") + 1);
         text = checkText(text);
 
         // Wenn noch keine Liste oder Unterliste beginn
         if (!isList || step > lastStep) {
+            // Letzte Stufe in die Liste wenn noch nicht vorhanden
+            if (stepList.indexOf(lastStep) < 0) {
+                stepList.push(lastStep);
+            }
+
             if (step > 2 && step > lastStep) {
                 htmlString += "<" + listTag + " sub-list" + newAttribute + ">";
             } else {
@@ -213,10 +252,20 @@ export function parseMd(mdString, options) {
 
         // wenn Einrückung kleiner voriger Einrückung
         if (step < lastStep) {
+            // prüfen auf die Position in der Liste
+            const stepIndex = stepList.indexOf(step);
+            const stepListLength = stepList.length;
+
             // Wenn bereits ein List-Item
             if (isLi) {
-                htmlString += "</li></" + listTag + ">";
+                for (let i = stepIndex; i < stepListLength; i++) {
+                    htmlString += "</li></" + listTag + ">";
+                }
             }
+
+            // Elemente bis zur Stufe entfernen
+            stepList.splice(stepIndex + 1);
+
         } else if (isLi && step == lastStep) {
             htmlString += "</li>";
             isLi = false;
@@ -249,8 +298,11 @@ export function parseMd(mdString, options) {
         }
 
         // Ab hier ist keine Leerzeile
-        if (trimLine.startsWith("[") && trimLine.endsWith("]")) {
-            newAttribute = " " + trimLine.substring(1, trimLine.length - 1);
+
+        // Wenn HTML Code
+        if (isHTML || (trimLine.startsWith("<") && trimLine.endsWith(">"))) {
+            isHTML = true;
+            htmlString += trimLine + "\n";
             return;
         }
 
@@ -263,6 +315,12 @@ export function parseMd(mdString, options) {
                     trimLine.substring(pos1 + 2, trimLine.length - 1);
                 trimLine = trimLine.substring(0, pos1);
             }
+        }
+
+        // Neue Attribute für folgende zeilen
+        if (trimLine.startsWith("[") && trimLine.endsWith("]")) {
+            newAttribute = " " + trimLine.substring(1, trimLine.length - 1);
+            return;
         }
 
         if (trimLine == "---") {
@@ -304,19 +362,57 @@ export function parseMd(mdString, options) {
         }
 
         // Tabelle
-        if (trimLine.startsWith("| ")) {
+        if (trimLine.startsWith("| ") || trimLine.startsWith("|* ")) {
             // Tabelle prüfen
             if (!isTable) {
-                htmlString += "<table" + newAttribute + "><thead><tr>";
+                htmlString += "<table" + newAttribute + ">";
                 isTable = true;
                 newAttribute = "";
             }
 
-            // Tabellen Spalte
-            let text = trimLine.substring(2);
-            htmlString += "<td" + tagAttribute + ">" + text + "</td>";
+            // in Spalten aufsplitten
+            // |* head |* zentriert [ text-c] |* rechts [ text-r] | [ format row]
+            let colString = trimLine.replace("\|", "&#124;");
+            const cols = trimLine.split("|");
+
+            // Zeile beginn
+            htmlString += "<tr" + tagAttribute + ">";
+            tagAttribute = "";
+
+            // Tabellen Spalten
+            for (let i = 1; i < cols.length - 1; i++) {
+                let isHeader = false;
+                let text = cols[i].trim();
+                if (text.startsWith("*")) {
+                    isHeader = true;
+                    text = text.substring(1);
+                }
+
+                let colAttribute = tableColAttributes[i] || "";
+                if (text.endsWith("]")) {
+                    let pos1 = text.lastIndexOf("[ ");
+                    if (pos1 > -1) {
+                        colAttribute = text.substring(pos1 + 1, text.length - 1);
+                        text = text.substring(0, pos1);
+                        if (isHeader) {
+                            tableColAttributes[i] = colAttribute;
+                        }
+                    }
+                }
+
+                // Spalte
+                if (isHeader) {
+                    htmlString += "<th" + colAttribute + ">" + text + "</th>";
+                } else {
+                    htmlString += "<td" + colAttribute + ">" + text + "</td>";
+                }
+            } // for cols
+
+            // Zeile Ende
+            htmlString + "</tr>";
             return;
-        }
+        } // tabelle "|"
+
 
         // Wenn Überschriften
         const pos1 = trimLine.indexOf("# ");
@@ -325,36 +421,42 @@ export function parseMd(mdString, options) {
             const text = trimLine.substring(pos1 + 2);
             if (praefix == "#") {
                 // H1
+                if (isP) {htmlString += "</p>"; isP = false;}
                 htmlString += "<h1" + tagAttribute + ">" + text + "</h1>";
                 tagAttribute = "";
                 return;
             }
             if (praefix == "##") {
-                // H6
+                // H2
+                if (isP) {htmlString += "</p>"; isP = false;}
                 htmlString += "<h2" + tagAttribute + ">" + text + "</h2>";
                 tagAttribute = "";
                 return;
             }
             if (praefix == "###") {
-                // H6
+                // H3
+                if (isP) {htmlString += "</p>"; isP = false;}
                 htmlString += "<h3" + tagAttribute + ">" + text + "</h3>";
                 tagAttribute = "";
                 return;
             }
             if (praefix == "####") {
                 // H4
+                if (isP) {htmlString += "</p>"; isP = false;}
                 htmlString += "<h4" + tagAttribute + ">" + text + "</h4>";
                 tagAttribute = "";
                 return;
             }
             if (praefix == "#####") {
                 // H5
+                if (isP) {htmlString += "</p>"; isP = false;}
                 htmlString += "<h5" + tagAttribute + ">" + text + "</h5>";
                 tagAttribute = "";
                 return;
             }
             if (praefix == "######") {
                 // H6
+                if (isP) {htmlString += "</p>"; isP = false;}
                 htmlString += "<h6" + tagAttribute + ">" + text + "</h6>";
                 tagAttribute = "";
                 return;
@@ -371,6 +473,7 @@ export function parseMd(mdString, options) {
 
         if (!isP) {
             htmlString += "<p" + tagAttribute + ">" + text;
+            tagAttribute = "";
             isP = true;
         } else {
             htmlString += "</br>" + text;

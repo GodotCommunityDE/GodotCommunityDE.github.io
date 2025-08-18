@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>GridTest</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" type="text/css" href="/flex/flex.css" />
+    <link rel="stylesheet" type="text/css" href="/flex/flex-colors.css" />
+
+    <link rel="stylesheet" type="text/css" href="/prism/prism.css" />
+    <!-- <script src="/prism/prism.js"></script> -->
+</head>
+
+<body>
+ 
+</body>
+
+<script type="module">
+    //@ts-check
+    import { GridList, GridView, GSID, lists } from "./gridlist.js";
+    import { isDate } from "./infodate.js";
+    globalThis.isDate = isDate;
+
+    // Anzahl der Zeilen
+    const countRows = 10000;
+
+    console.time("erstellen");
+    const list = new GridList("test", ["id number", "name", "info"], "GSID");
+    for (let i = 0; i < countRows; i++) {
+        list.setObject({ id: i, name: "Name " + i, info: "Info " + i });
+    }
+    console.timeLog("erstellen", countRows + " Zeilen einfügen");
+
+    // filtern
+    //list.filter((obj) => {
+    //    if (obj.name.indexOf("8") > -1) {
+    //        return false;
+    //    }
+    //    return true;
+    //}, null, "name");
+
+    // sortieren
+    list.sortRows(["id DESC"], "name");
+    console.timeLog("erstellen", countRows + " sortieren");
+
+
+    // Tabelle erstellen
+    const newTableElm = document.createElement("table");
+    document.body.appendChild(newTableElm);
+    newTableElm.setAttribute("table-stripes", "");
+    newTableElm.setAttribute("w-50", "");
+
+    //const newTableElm = document.createElement("div");
+    //document.body.appendChild(newTableElm);
+
+    console.time("tabelle");
+    const newTable = new GridView(list);
+    //newTable.rowTag = "f-row";
+    newTable.rowFunc = (row, colAttr) => {
+        if ((row.id + "").endsWith("0")) {
+            colAttr.name = "color-green";
+            return "border-t";
+        }
+        return "";
+    }
+    newTable.setCols(["id th text-c", "name", "info"]);
+
+    console.timeLog("tabelle", "erstellen");
+    const html = newTable.getHtml("name");
+    console.timeLog("tabelle", "HTML lesen");
+    newTableElm.insertAdjacentHTML("afterbegin", html);
+    console.timeLog("tabelle", "anzeigen");
+
+    const testList = new GridList("test2");
+    testList.parse(list.stringify());
+
+    // console.timeEnd("tabelle erstellen");
+    console.log("Lists:", lists);
+</script>
+
+</html>

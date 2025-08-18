@@ -37,6 +37,10 @@ import { parseMd } from "./parsemd.js";
 //   Parameter
 // ------------
 
+/** @type {HTMLElement} */
+let contentElm = document.body;
+
+
 
 /** @type {Config} */
 const config = {
@@ -74,27 +78,42 @@ export function setConfig(obj) {
 
 
 /**
+ * Prüft die URL auf einen Markdown Datei Namen
+ * @param {string} siteUrl - relatife URL zu der Markdown Seite
+ * @returns {string}
+ */
+function checkSiteUrl(siteUrl) {
+    if (!siteUrl) {
+        siteUrl = "./index.md";
+    }
+    
+    if (siteUrl.startsWith("#")) {
+        // Hash entfernen und Soursepath hinzufügen
+        siteUrl = siteUrl.substring(1);
+    } 
+    
+    if (siteUrl.endsWith("/")) {
+        siteUrl += "index.md";
+    }
+    
+    if (siteUrl.endsWith(".html")) {
+        siteUrl = siteUrl.replace(".html", ".md");
+    }
+    
+    if (!siteUrl.endsWith(".md")) {
+        siteUrl += ".md";
+    }
+    return siteUrl;
+}
+
+
+/**
  * Hash von URL lesen, um Seiteninhalte nachladen zu können
  * @returns {string} - URL der Markdownseite
  */
 export function getHashUrl() {
     let siteUrl = window.location.hash;
-    if (!siteUrl) {
-        siteUrl = config.docPath + "index.md";
-    } else {
-        // Hash entfernen und Soursepaht hinzufügen
-        siteUrl = config.docPath + siteUrl.substring(2);
-    }
-    if (siteUrl.endsWith("/")) {
-        siteUrl += "index.md";
-    }
-    if (siteUrl.endsWith(".html")) {
-        siteUrl = siteUrl.replace(".html", ".md");
-    }
-    if (!siteUrl.endsWith(".md")) {
-        siteUrl += ".md";
-    }
-    return siteUrl;
+    return checkSiteUrl(siteUrl);
 }
 
 /**
@@ -116,13 +135,12 @@ async function fetchText(url) {
 /**
  * Alle [sub-list] Elemente laden
  * //@param {any[]} linkList Liste mit Links, denen [sub-list] Elemente folgen
- * @returns 
  */
 export function setSublist() {
     const linkList = document.querySelectorAll("nav a");
     if (!linkList) { return; }
 
-    //console.log("linkList:", linkList);
+    // console.log("linkList:", linkList);
 
     // bestehende Liste leeren
     subList = [];
@@ -143,15 +161,19 @@ export function setSublist() {
 
 
 // Navigation prüfen
+/**
+ * 
+ */
 function checkNav() {
-    const hash = window.location.hash;
-
     // Alle [sub-list] Elemente durchgehen
+    // console.log("sublist:", subList);
+    const hashUrl = location.hash;
+
     subList.forEach((obj) => {
-        if (hash.startsWith(obj.hash)) {
+        if (hashUrl.startsWith(obj.hash)) {
             obj.subElm?.classList.remove("hidden");
-            //console.log("hash:", hash, obj.hash);
-            if (hash == obj.hash) {
+            // console.log("hash:", hashUrl, obj.hash);
+            if (hashUrl == obj.hash) {
                 obj.linkElm.classList.add("active");
             } else {
                 obj.linkElm.classList.remove("active");
@@ -163,6 +185,25 @@ function checkNav() {
         }
     })
 }
+
+
+/**
+ * Läd erforderliche Javascript Module für die Seite.  
+ * Es können nur Module mit absoluten Pfad (beginnend mit "/") geladen werden.
+ * @param {Array<string>} module - Liste mit Modul Namen
+ * @returns {Promise<void>}
+ */
+async function loadModule(module) {
+    if (!module || !Array.isArray(module)) {return;}
+    
+    // alle module durchgehen
+    for (let i = 0;i < module.length; i++) {
+        const modulName = module[i];
+        if (!modulName.startsWith("/")) {continue;}
+        let m = await import(modulName);
+    }
+}
+
 
 
 /**
@@ -195,13 +236,7 @@ export async function showContent(elm, url) {
     elm.innerHTML = "";
     elm.insertAdjacentHTML("afterbegin", siteData.html.get("content"));
 
-    // Syntax Highlighter
-    // @ts-ignore
-    if (window?.Prism) {
-        // @ts-ignore
-        window.Prism.highlightAll();
-    }
-    
+    await loadModule(siteData.data.module);
 } // showSite
 
 
@@ -210,9 +245,67 @@ export async function showContent(elm, url) {
  * Seite Parsen und anzeigen
  * @param {any} elm - URL zu der Seite die angezeigt wird
  */
-export function showSite(elm) {
+export async function showSite(elm) {
     const siteUrl = getHashUrl();
-    showContent(elm, siteUrl);
+    await showContent(elm, siteUrl);
     checkNav();
+
+    // Syntax Highlighter
+    // @ts-ignore
+    if (window?.Prism) {
+        // @ts-ignore
+        window.Prism.highlightAll();
+    }
 } // showSite
+
+
+// =======================
+//  Defaults
+// ---------------
+
+// Alle Lidoc elemente lesen
+/** @type {NodeListOf<HTMLElement>} */
+const lidocElmList = document.querySelectorAll("[data-lidoc]");
+
+for (let i = 0; i < lidocElmList.length; i ++) {
+    const elm = lidocElmList[i];
+    let url = elm.dataset.lidoc || "";
+    url = checkSiteUrl(url);
+
+    if (elm.tagName == "NAV") {
+        await showContent(elm, url);
+        setSublist();
+    } else {
+        await showContent(elm, url);
+    }
+
+    // ID auf "content" prüfen
+    if (elm.id == "content") {
+        contentElm = elm;
+    }
+}
+
+if (contentElm) {
+    await showContent(contentElm, checkSiteUrl(location.hash));
+}
+
+// Navigation prüfen
+checkNav();
+
+// Syntax Highlighter
+// @ts-ignore
+if (window?.Prism) {
+    // @ts-ignore
+    window.Prism.highlightAll();
+}
+
+
+// =======================
+//   Events
+// ------------
+
+// Wenn sich der Hash ändert
+addEventListener("hashchange", (e) => {
+    showSite(contentElm);
+});
 

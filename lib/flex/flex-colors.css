@@ -114,15 +114,15 @@ body {
   
   /* Primary Color */
   [color-p],.color-p,[hover-p]:hover,.hover-p:hover {
-    color: #fff !important;background-color: #5387BF !important
+    color: #fff !important;background-color: #205D67 !important
   }
   [color-p2],.color-p2,[hover-p2]:hover,.hover-p2:hover {
-    color: #ffffff !important;background-color: #3b5380 !important
+    color: #ffffff !important;background-color: #639A67 !important
   }
   
   /* Secondary Color */
   [color-s],.color-s,[hover-s]:hover,.hover-s:hover {
-    color: #000000 !important;background-color: #64BC8E !important
+    color: #000000 !important;background-color: #D8EBB5 !important
   }
   [color-s2],.color-s2,[hover-s2]:hover,.hover-s2:hover {
     color: #000 !important;background-color: #D9BF77 !important
@@ -136,13 +136,11 @@ body {
     color: #000 !important;background-color: #E9767C !important
   }
   
-  /* Highlight Color */
-  [color-h],.color-h {
-    color: #000 !important;background-color: #c3ffc9 !important;
-    border-left: #4CAF50 5px solid;
+  /** Aktive elemente **/
+  .active {
+    color: #000000 !important;background-color: #D8EBB5 !important
   }
 
-  
   /* Dark Schema */
   @media (prefers-color-scheme: dark) {
     /*

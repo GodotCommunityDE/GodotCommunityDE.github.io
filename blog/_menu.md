@@ -1,4 +1,3 @@
 - [**Blog**](/blog/)
-    - [News 1](#news1)
-    - [News 2](#news2)
+    - [Godot 4.4](#news/godot44.md)
     - [Test](#test/test)

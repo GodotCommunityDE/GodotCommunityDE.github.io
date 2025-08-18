@@ -1,14 +1,10 @@
-[ color-p2 i-center i-middle]
---- [ hide-xs]
-![Icon](../img/icon40.png)
---- [ text-r]
-[**Godot-Community.de**](/)
---- [ hide-s hide-xs]
+
+--- [ color-p2 hide-gt-s]
+![Icon](/img/icon40.png) [godot-community.de](/)
+---
 [Blog](/blog/)
---- [ hide-s hide-xs]
+---
+[Community](/community/)
+---
 [Godot](/godot/)
---- [ hide-s hide-xs]
-[Info](/info/)
---- [ hide-s hide-xs]
-[Impressum](#/impressum)
---- [ hide-s hide-xs]
+---

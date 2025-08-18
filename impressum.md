@@ -10,7 +10,7 @@ Roman Huber
 Discord: [https://discord.gg/fJqxPZQ](https://discord.gg/fJqxPZQ)
 
 ## Links
-Abgesehen von den in § 17 des österreichischen E-Commcerce-Gesetzes geregelten Fällen übernimmt godot-community.de keine Haftung für die Inhalte der mit der Webseite verknüpften Webseiten oder URLs anderer Betreiber. godot-community.de hat keinen Einfluss auf die Gestaltung dieser Webseiten. Ebensowenig haftet godot-community.de für eine ständige Verfügbarkeit oder volle Funktionalität von Linkverknüpfungen zu Webseiten oder URLs anderer Betreiber.
+godot-community.de übernimmt keine Haftung für die Inhalte der mit der Webseite verknüpften Webseiten oder URLs anderer Betreiber. godot-community.de hat keinen Einfluss auf die Gestaltung dieser Webseiten. Eben sowenig haftet godot-community.de für eine ständige Verfügbarkeit oder volle Funktionalität von Linkverknüpfungen zu Webseiten oder URLs anderer Betreiber.
 
 ## Goodies/ Downloads
 Auf den godot-community.de Internetseiten finden sich verschiedene Datensätze und, Dateien die zum Download angeboten werden. Diese Angebote dürfen, sofern nicht ausdrücklich anderes bestimmt ist, ausschliesslich zu privaten und nicht kommerziellen Zwecken verwendet werden. Jede berechtigte Verbreitung von Inhalten, die sich auf die godot-community.de Internetseiten beziehen, hat auf die Bezugsquelle hinzuweisen.

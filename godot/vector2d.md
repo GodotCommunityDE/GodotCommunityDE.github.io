@@ -10,10 +10,10 @@ Im Folgenden betrachten wir Vektoren auf einer 2D Fläche und benutzen in unsere
 var my_vector = Vector2(7,10)
 ```
 
---- [ w-8]
+--- [ w-fit]
 Ein Vektor ist am einfachsten anhand eines Pfeils erklärbar. Die Pfeilspitze zeigt an einen Punkt welcher bezugnehmend zum Startpunkt über die zwei Maße von X und Y bestimmt wird.
 In Godot wird dieser Vektor folgendermaßen festgelegt:
---- [ w-4]
+--- [ w-50]
 ![alt text](/godot/img/vector2d_1.png)
 ---
 

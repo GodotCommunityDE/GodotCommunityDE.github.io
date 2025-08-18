@@ -7,7 +7,7 @@
 //   Imports
 // ----------
 
-import { showSite, showContent, setSublist } from "./lidoc/lidoc.js";
+import { showSite, showContent, setSublist } from "./lidoc.js";
 
 // =======================
 //   Variablen
@@ -75,7 +75,7 @@ export function setEvents() {
     });
 
     // Menü anzeigen / ausblenden auf schmalen Bildschirmen
-    toggleMenueElm.addEventListener("click", (e) => {
+    toggleMenueElm.addEventListener("click", (/** @type {Event} */ e) => {
         console.log(menueElm.style.display);
         if (!menueElm.style.display || menueElm.style.display == "none") {
             menueElm.style.display = "block";

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>LiDoc Library</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" type="text/css" href="/lib/flex/flex.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/flex/flex-colors.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/prism/prism.css" />
+
+    <style>
+        #header {
+            top: 0px;
+            left: 0px;
+            height: 50px;
+        }
+        #menue {
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 0px;
+            overflow-y: auto;
+        }
+        #menue,.menue {
+            width: 300px;
+            min-width: 300px;
+        }
+        #content {
+            min-height: 85vh;
+        }
+        #footer {
+            height: 60px;
+        }
+    </style>
+
+    <script src="/lib/prism/prism.js"></script>
+</head>
+
+<body>
+    <div id="header" color-p pos-sticky border-b no-print data-lidoc="/_header.md"></div>
+    <nav id="menue" color-p hide-lt-m no-print data-lidoc="./_menue.md"></nav>
+    <f-row>
+        <f-item class="menue" hide-lt-m no-print></f-item>
+        <f-item w-fit>
+            <div id="content" w-max ma-l data-lidoc="./index.md"></div>
+            <div id="footer" color-darkgrey no-print data-lidoc="/_footer.md"></div>
+        </f-item>
+    </f-row>
+    <!-- <div id="toggle_menue" color-p2 no-print hide-m hide-l hide-xl hide-xxl>+</div> -->
+</body>
+
+<script type="module" src="/lidoc/lidoc.js"></script>
+
+</html>

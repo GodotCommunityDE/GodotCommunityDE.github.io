@@ -1,2 +1,0 @@
-- [**Info**](#/info/)
-    - [Lidoc](#lidoc)

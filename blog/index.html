@@ -7,84 +7,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <link rel="icon" href="/img/icon.png">
-    <link rel="stylesheet" type="text/css" href="/css/flex.css" />
-    <link rel="stylesheet" type="text/css" href="/css/colors.css" />
-    <link rel="stylesheet" type="text/css" href="/prism/prism.css" />
-    <style>
-        f-grid {
-            display: grid;
-            grid-template-rows: 50px auto;
-            grid-template-columns: auto;
-            height: 100vh;
-        }
+    <link rel="stylesheet" type="text/css" href="/lib/flex/flex.css" />
+    <link rel="stylesheet" type="text/css" href="/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/prism/prism.css" />
 
-        #header {
-            position: fixed;
-            top: 0px;
-            z-index: 1;
-            width: 100%;
-            height: 50px;
-        }
-
-        #menue {
-            position: fixed;
-            top: 50px;
-            bottom: 60px;
-            overflow-y: auto;
-            z-index: 3;
-        }
-        #menue, .menue {
-            width: 300px;
-        }
-
-        #content {
-            margin-top: 50px;
-        }
-
-        #footer {
-            height: 60px;
-            position: fixed;
-            width: 300px;
-            bottom: 0px;
-        }
-
-        #toggle_menue {
-            position: fixed;
-            top: 50px;
-            left: 0px;
-            width: 50px;
-        }
-        /* auf schmalen Screens */
-        @media (max-width: 767px) {
-            #footer {
-                position: relative;
-                width: 100%;
-            }
-        }
-
-        /* Drucken */
-        @media print {
-
-        }
-    </style>
-
-    <script src="/prism/prism.js"></script>
+    <script src="/lib/prism/prism.js"></script>
 </head>
 
 <body>
-    <div id="header" color-p border-b no-print data-lidoc="/_header.md"></div>
-    <nav id="menue" color-p2 hide-s hide-xs no-print data-lidoc="./_menue.md"></nav>
-    <f-row>
-        <f-item class="menue" hide-s hide-xs no-print></f-item>
-        <f-item w-fit>
-            <div id="content" w-max data-lidoc="./index.md"></div>
-        </f-item>    
+    <f-row w-l ma-auto color-p border-b gap-s>
+        <f-item color-p2 hide-lt-m data-lidoc="/_logo.md" style="width: 300px;"></f-item>
+        <f-item no-print w-fit text-c data-lidoc="/_header"></f-item>
     </f-row>
-    <div id="footer" color-darkgrey no-print data-lidoc="/_footer.md"></div>
 
-    <div id="toggle_menue" color-p2 no-print hide-m hide-l hide-xl hide-xxl>+</div>
+    <div w-content ma-auto id="content" data-lidoc="./index.md" style="min-height: 100vh;"></div>
+    <f-item color-darkgrey no-print data-lidoc="/_footer.md"></f-item>
 </body>
 
-<script type="module" src="/js/lidoc.js"></script>
+<script type="module" src="/lib/lidoc/lidoc.js"></script>
 
 </html>

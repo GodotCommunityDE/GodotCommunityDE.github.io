@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/img/icon.png">
+    <link rel="stylesheet" type="text/css" href="/lib/flex/flex.css" />
+    <link rel="stylesheet" type="text/css" href="/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/prism/prism.css" />
+    <style>
+        f-grid {
+            display: grid;
+            grid-template-rows: 50px auto;
+            grid-template-columns: auto;
+            height: 100vh;
+        }
+
+        #header {
+            top: 0px;
+            left: 0px;
+            height: 50px;
+        }
+
+        #menue, .sidebar {
+            position: fixed;
+            top: 50px;
+            bottom: 0px;
+            overflow-y: auto;
+            z-index: 3;
+        }
+        #menue, .menue, .sidebar {
+            width: 300px;
+            min-width: 300px;
+        }
+
+        #content {
+            min-height: 90vh;
+        }
+
+        #footer {
+            height: 60px;
+            /*position: fixed;
+            width: 300px;
+            bottom: 0px;*/
+        }
+
+        .togglebar {
+            position: fixed; top:4px; right:4px; font-size:2em; z-index:6;
+            color: white;
+            cursor: pointer;
+        }
+        /* auf schmalen Screens */
+        @media (max-width: 767px) {
+            #footer {
+                position: relative;
+                width: 100%;
+            }
+        }
+
+        /* Drucken */
+        @media print {
+
+        }
+    </style>
+
+    <script src="/lib/prism/prism.js"></script>
+</head>
+
+<body>
+    <div id="header" pos-sticky color-p border-b no-print data-lidoc="/_header.md"></div>
+    <label for="navmenu" hide-gt-s class="togglebar">&#9776;</label>
+    <input id="navmenu" type="checkbox" class="toggler">
+    <nav color-p2 no-print class="sidebar" onclick="document.getElementById('navmenu').checked = false;">
+        <div data-lidoc="/_header2.md"></div>
+        <div data-lidoc="./_menue.md"></div>
+    </nav>
+    <nav id="menue" color-p2 hide-lt-m no-print data-lidoc="./_menue.md"></nav>
+    <f-row>
+        <f-item class="menue" hide-lt-m no-print>&nbsp;</f-item>
+        <f-item w-fit>
+            <div id="content" w-max data-lidoc="./index.md"></div>
+            <div id="footer" color-darkgrey no-print data-lidoc="/_footer.md"></div>
+        </f-item>    
+    </f-row>
+</body>
+
+<script type="module" src="/lib/lidoc/lidoc.js"></script>
+
+</html>
